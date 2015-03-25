@@ -1,35 +1,30 @@
 <?php
-
 Yii::$enableIncludePath = false; 
-Yii::import('application.components.TaobaoConnectorSQL') ;
+Yii::import('application.components.TaobaoConnectorSQL');
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
-require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
+require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' );
 include_once (dirname(__FILE__).'/../extensions/PHPExcel/PHPExcel/IOFactory.php');
-
 class CategoryTreeCommand extends ConsoleCommand {
-    
     protected $PHPExcel = null;
     protected $saveFileName = null;
     protected $_className= null ;
-    
+    protected $parentid_Array = null;
     public function init(){
-                
-
         $this->PHPExcel = new PHPExcel();
         $this->saveFileName = dirname(__FILE__).'/../../Excel/php.xls';
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
+        //创建php.xls
+        fopen($this->saveFileName, "w+");
     }
     
     public function run($args){
-        
         $this->_clearMysql('0_parentcid');
         $this->_Print();
     }
 
     //获取API属性
     public function _getAPIValue($parent_cid){
-        
         $_itemsTmallAll= array();
         $_itemsTmall= $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$parent_cid."");
         if (array_key_exists('item_cats',$_itemsTmall['itemcats_get_response'])&&array_key_exists('item_cat',$_itemsTmall['itemcats_get_response']['item_cats'])){
@@ -40,7 +35,6 @@ class CategoryTreeCommand extends ConsoleCommand {
     
     //使用递归调用
     public function _insertDB($parent_cid,$i){
-        
         //获取API属性
         $_itemsTmallAll = $this->_getAPIValue($parent_cid);
         ob_start();
@@ -60,6 +54,7 @@ class CategoryTreeCommand extends ConsoleCommand {
                     $j = $j+1;
                 }
                 $i = $i + 1;
+                //将
             }
         }
         return $i;
@@ -67,16 +62,15 @@ class CategoryTreeCommand extends ConsoleCommand {
     
     //循环输出并保存在Excel中
     public function _Print(){
-        
+        //数组初始化
+        $title = array("cid","is_parent","name","parent_cid");
         ob_start();
-        $this->PHPExcel->setactivesheetindex(0)
-            //向Excel中添加数据
-            ->setCellValue('A1', 'cid')
-            ->setCellValue('B1', 'is_parent')
-            ->setCellValue('C1', 'name')
-            ->setCellValue('D1', 'parent_cid')
-            ->setCellValue('A2', '0')//初始化
-            ->setTitle('0_parentcid');
+        $currentSheet = $this->PHPExcel->setactivesheetindex(0);
+        for($i=0,$index = 65;$i<count($title);$i++,$index++){
+            $currentSheet->setCellValue(chr($index)."1", $title[$i]);    
+        }
+        $currentSheet->setCellValue('A2', '0')//初始化
+                ->setTitle("Sheet1");
         //循环
         $i=2;
         $k=2;
@@ -86,7 +80,6 @@ class CategoryTreeCommand extends ConsoleCommand {
             $i = $this->_insertDB($parent_cid, $i);
             $k = $k + 1;
         }while($k!=$i);
-        
         //保存Excel数据库
         if(!is_writable($this->saveFileName)){
             echo 'Can not Write';
@@ -145,7 +138,6 @@ class CategoryTreeCommand extends ConsoleCommand {
     }
 
     private function _insertMysql($cid,$is_parent,$name,$parent_cid){
-        
         $sql_insert = "insert into 0_parentcid(c_id,is_parent,name,parent_cid) values (" . $cid . "," . $is_parent . ",'" . $name . "'," . $parent_cid . ")";
         $connection= Yii::app()->db;//建立数据库连接
         $command2 = $connection->createCommand($sql_insert);
@@ -153,7 +145,6 @@ class CategoryTreeCommand extends ConsoleCommand {
     }
     
     private function _clearMysql($tblName){
-        
         $sql_clear = "TRUNCATE TABLE ".$tblName;
         $connection= Yii::app()->db;//建立数据库连接
         $command = $connection->createCommand($sql_clear);

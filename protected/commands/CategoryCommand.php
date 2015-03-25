@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 Yii::$enableIncludePath = false; 
@@ -26,11 +23,12 @@ class CategoryCommand extends ConsoleCommand {
         $this->PHPWrite = new PHPExcel();
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
+        fopen($this->saveFileName, "w+");
     }
     
     public function run($args){
         
-//        $this->_Print();
+        $this->_Print();
     }
 
     //读取Excel中的数据

@@ -1,11 +1,6 @@
 <?php
 
 class TaobaoConnector {
-//        $appKey = '1023006372';
-//        $appSecret = 'sandboxa96cb48148b1f499ba1d4ffb3';
-//        $sessionkey = '6101f09d2235706da1460d6eac8a56302578eae5da405323640540549';
-//        $method = 'taobao.user.seller.get';
-//    public $__url= 'http://gw.api.tbsandbox.com/router/rest?';
     public $__url= '' ;
     public $__appkey= '' ;
     public $__appsecret= '' ;

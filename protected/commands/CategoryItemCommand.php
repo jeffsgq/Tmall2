@@ -1,13 +1,10 @@
 <?php
-
 Yii::$enableIncludePath = false; 
 Yii::import('application.components.TaobaoConnectorItem');
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
 include_once (dirname(__FILE__).'/../extensions/PHPExcel/PHPExcel/IOFactory.php');
-
 class CategoryItemCommand extends ConsoleCommand{
-
     protected $PHPExcel = null;
     protected $PHPReader = null;
     protected $PHPWrite = null;
@@ -19,14 +16,11 @@ class CategoryItemCommand extends ConsoleCommand{
     protected $PHPWrite2 = null;
     protected $readFileName2 = null;
     protected $saveFileName2 = null;
-
+    //EXCELTITLE
+    protected $categoryTitle = null;
+    protected $itemTitle = null;
     public function init(){
-
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        $this->readFileName = dirname(__FILE__).'/../../Excel/item.xls';
-        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
-        $this->saveFileName = dirname(__FILE__).'/../../Excel/category.xls';
-        $this->PHPWrite = new PHPExcel();
         //Category
         $this->readFileName2 = dirname(__FILE__).'/../../Excel/num_iid.xls';
         $this->PHPReader2 = $this->PHPExcel->load($this->readFileName2);
@@ -34,42 +28,27 @@ class CategoryItemCommand extends ConsoleCommand{
         $this->PHPWrite2 = new PHPExcel();
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
+        //创建category.xls、item.xls
+        fopen($this->saveFileName2, "w+");
+        //初始化Excel标题
+        $this->categoryTitle = array("num_iid","title","input_str","num","approve_status","cid_1","Category_1","cid_2","Category_2","cid_3","Category_3","cid_4","Category_4","cid_5","Category_5");
+        $this->itemTitle = array("num_iid","title","input_str","num","approve_status","cid1");
     }
-    
     //执行方法
     public function run($args){
-        
         $this->_Print2();
-        $this->_Print();
-        
+        $this->_Print();       
     }
-    
     //Excel的头部
     public function _startSaveExcel(){
-        
-       $this->PHPWrite->setactivesheetindex(0)
-            //向Excel中添加数据
-            ->setCellValue('A1', 'num_iid')
-            ->setCellValue('B1', 'title')
-            ->setCellValue('C1', 'input_str')
-            ->setCellValue('D1', 'num')
-            ->setCellValue('E1', 'approve_status')
-            ->setCellValue('F1', 'cid_1')
-            ->setCellValue('G1', 'Category_1')
-            ->setCellValue('H1', 'cid_2')
-            ->setCellValue('I1', 'Category_2')
-            ->setCellValue('J1', 'cid_3')
-            ->setCellValue('K1', 'Category_3')
-            ->setCellValue('L1', 'cid_4')
-            ->setCellValue('M1', 'Category_4')
-            ->setCellValue('N1', 'cid_5')
-            ->setCellValue('O1', 'Category_5')
-            ->setTitle('sheet1');
+        $currentSheet = $this->PHPWrite->setactivesheetindex(0);
+        for($i=0,$index = 65;$i<count($this->categoryTitle);$i++,$index++){
+            $currentSheet->setCellValue(chr($index)."1", $this->categoryTitle[$i]);    
+        }
+        $currentSheet->setTitle("Sheet1");
     }
-    
     //Excel的尾部
     public function _endSaveExcel(){
-        
         if(!is_writable($this->saveFileName)){
             echo 'Can not Write';
             exit();
@@ -81,14 +60,17 @@ class CategoryItemCommand extends ConsoleCommand{
         $objWriter = PHPExcel_IOFactory::createWriter($this->PHPWrite,'Excel5');  
         $objWriter->save($this->saveFileName);
     }
-
-    
     //写入数据
     public function _Print(){
-        
+        //EXCEL初始化
+        $this->PHPExcel = new PHPExcel_Reader_Excel5();
+        $this->readFileName = dirname(__FILE__).'/../../Excel/item.xls';
+        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
+        $this->saveFileName = dirname(__FILE__).'/../../Excel/category.xls';
+        $this->PHPWrite = new PHPExcel();
+        fopen($this->saveFileName, "w+");
         ob_start();
         $this->_startSaveExcel();
-        
         $currentSheet = $this->PHPReader->getSheet(0);
         $rowN = $currentSheet->getHighestRow();
         $colIndex = 'F';
@@ -99,11 +81,9 @@ class CategoryItemCommand extends ConsoleCommand{
                 $item = $this->_selectItems($cell); //$item为当前cid的对应值
                 $cid = $item['parent_cid'];
                 //Excel初始化
-                $this->_writeExcelData($this->_readExcelData($rowIndex,'A'), $rowIndex,'A');
-                $this->_writeExcelData($this->_readExcelData($rowIndex,'B'), $rowIndex,'B');
-                $this->_writeExcelData($this->_readExcelData($rowIndex,'C'), $rowIndex,'C');
-                $this->_writeExcelData($this->_readExcelData($rowIndex,'D'), $rowIndex,'D');
-                $this->_writeExcelData($this->_readExcelData($rowIndex,'E'), $rowIndex,'E');
+                for($index = 65;$index<=69;$index++){
+                    $this->_writeExcelData($this->_readExcelData($rowIndex,  chr($index)), $rowIndex,chr($index));   
+                }                
                 $j = 72;//H
                 $this->_writeExcelData($item['c_id'], $rowIndex,'F');
                 $this->_writeExcelData($item['name'], $rowIndex,'G');
@@ -122,12 +102,10 @@ class CategoryItemCommand extends ConsoleCommand{
         }
         $this->_order();
         $this->_endSaveExcel();
-        echo 'END2--item.xml';
+        echo 'END--category.xml';
     }
-    
     //调整Excel表中属性的顺序
     public function _order(){
-        
         $currentSheet = $this->PHPWrite->getSheet(0);
         $rowN = $currentSheet->getHighestRow();
         $colN = $currentSheet->getHighestColumn();
@@ -145,10 +123,8 @@ class CategoryItemCommand extends ConsoleCommand{
                     ->setCellValue(chr($i+2).$j, $Category);  
         }
     }
-    
     //调整一行的数据位置
     public function _orderALine($row,$colN){//F开始
-        
         $array = array();
         $index = 0;
         $curSheet = $this->PHPWrite->getSheet(0);
@@ -176,13 +152,11 @@ class CategoryItemCommand extends ConsoleCommand{
            }
         }
     }
-    
     //将数据写入到Excel中
     public function _writeExcelData($data,$rowIndex,$colIndex){
         $addr = $colIndex.$rowIndex;
         $this->PHPWrite->setActiveSheetIndex(0)->setCellValue($addr,$data);
     }
-    
     //读取Excel中的数据
     public function _readExcelData($rowIndex,$colIndex){
         $currentSheet = $this->PHPReader->getSheet(0);
@@ -190,7 +164,6 @@ class CategoryItemCommand extends ConsoleCommand{
         $cell = $currentSheet->getCell($addr)->getValue();
         return $cell;
     }
-    
     //通过cid搜索商品
     public function _selectItems($cid){
         //建立数据库连接
@@ -202,7 +175,6 @@ class CategoryItemCommand extends ConsoleCommand{
                 ->queryRow();
         return $item;
     }
-    
     //Category
     //读取Excel中的数据
     public function _readExcelData2($rowIndex,$colIndex){
@@ -227,48 +199,34 @@ class CategoryItemCommand extends ConsoleCommand{
         }
     }
      public function _insertExcel2($num_iid,$i){
-        
         //获取API属性
         $_itemsTmallAll = $this->_getAPIValue2($num_iid);//一个$num_iid对应一列数据
         if(!empty($_itemsTmallAll)){
+            $array = array();
             foreach ($_itemsTmallAll as $_firstKey=>$_firstValue){
                 //获取Item数据
-                $num_iid_value = $_firstValue['num_iid'];//1
-                $title_value = $_firstValue['title'];//2
-                $input_str_value = $_firstValue['input_str'];//3
-                $num_value = $_firstValue['num'];//4
-                $approve_status_value = $_firstValue['approve_status'];//5
-                $cid_value = $_firstValue['cid'];//6
-
+                array_push($array, $_firstValue['num_iid'],$_firstValue['title'],$_firstValue['input_str'],$_firstValue['num'],$_firstValue['approve_status'],$_firstValue['cid']);
                 //插入Excel
-                $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('A'.$i, $num_iid_value);
-                $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('B'.$i, $title_value);
-                $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('C'.$i, $input_str_value);
-                $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('D'.$i, $num_value);
-                $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('E'.$i, $approve_status_value);
-                $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('F'.$i, $cid_value);
+                for($j=0,$index = 65;$j<count($array);$j++,$index++){
+                    $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue(chr($index).$i, $array[$j]);
+                }
             }
         }else{
             $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('A'.$i, $num_iid);
         }
     }
-     //Excel的头部
+    //Excel的头部
     public function _startSaveExcel2(){
         
-       $this->PHPWrite2->setactivesheetindex(0)
-            //向Excel中添加数据
-            ->setCellValue('A1', 'num_iid')
-            ->setCellValue('B1', 'title')
-            ->setCellValue('C1', 'input_str')
-            ->setCellValue('D1', 'num')
-            ->setCellValue('E1', 'approve_status')
-            ->setCellValue('F1', 'cid1')
-            ->setTitle('sheet1');
+        $currentSheet = $this->PHPWrite2->setactivesheetindex(0);
+        for($i=0,$index = 65;$i<count($this->itemTitle);$i++,$index++){
+            $currentSheet->setCellValue(chr($index)."1", $this->itemTitle[$i]);    
+        }
+        $currentSheet->setTitle("Sheet1");
     }
     //Excel的尾部
     public function _endSaveExcel2(){
-        
-        if(!is_writable($this->saveFileName)){
+        if(!is_writable($this->saveFileName2)){
             echo 'Can not Write';
             exit();
         }
@@ -281,7 +239,6 @@ class CategoryItemCommand extends ConsoleCommand{
     }
     //循环输出并保存在Excel中
     public function _Print2(){
-        
         ob_start();
         $this->_startSaveExcel2();
         $currentSheet = $this->PHPReader2->getSheet(0);
@@ -292,10 +249,10 @@ class CategoryItemCommand extends ConsoleCommand{
             $this->_insertExcel2($num_iid,$rowIndex);
         }
         $this->_endSaveExcel2();
-        echo 'END1'."\n";
+        echo 'END---item.xls'."\n";
     }
+    //连接淘宝API
      private function _connectTmall2($_sessionkey,$num_iid){
-        
         $_taobaoConnect= new TaobaoConnectorItem();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
@@ -313,6 +270,7 @@ class CategoryItemCommand extends ConsoleCommand{
                 return $_items ;           
             }else{
                 Yii::log('No data parent_cid'.$num_iid, 'error', 'system.fail');
+                
 //                exit();
                 return NULL;
             }

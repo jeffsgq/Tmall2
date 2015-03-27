@@ -33,7 +33,7 @@ class OnsaleCommand extends ConsoleCommand {
           $this->_startSaveExcel();
         $page_no = 1;
         $_total_results = $this->_getTotalResults($page_no);
-        $_page = floor($_total_results / 20 ) + 1;
+        $_page = floor($_total_results / 200 ) + 1;
         $rowIndex =2;
         do {
             $_itemsTmallAll = $this->_getAPIValue($page_no);

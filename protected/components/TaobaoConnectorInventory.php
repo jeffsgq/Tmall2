@@ -20,7 +20,7 @@ class TaobaoConnectorInventory {
                 'sign_method'=> 'md5',
                 'timestamp' => date('Y-m-d H:i:s'),
                 'fields' => $this->__fields,
-                'page_size' => '5',
+                'page_size' => '200',
                 'page_no' =>$page_no,
 //              'num_iid' => $num_iid//此处与淘宝API相对应
             );

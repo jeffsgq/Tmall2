@@ -18,26 +18,26 @@ class InventoryCommand extends ConsoleCommand {
 
     public function init() {
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-//        $this->readFileName = dirname(__FILE__).'/../../Excel/num_iid.xls';
-//        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         $this->saveFileName = dirname(__FILE__) . '/../../Excel/Inventory_num_iid.xls';
         $this->PHPWrite = new PHPExcel();
         $this->_className = get_class();
         $this->beforeAction($this->_className, '');
-//        fopen($this->saveFileName, "w+");
-//        //数组初始化
-//        $this->onsaleArray = array();
+
     }
 
     public function run($args) {
         $this->_Print();
     }
 
+    
+    
+    
+    
     //获取API属性
-    public function _getAPIValue() {
+    public function _getAPIValue($page_no) {
         //num_iid不存在则返回NULL
         $_itemsTmallAll = array();
-        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken']);
+        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no);
         
         
         if (!empty($_itemsTmall)) {
@@ -50,7 +50,7 @@ class InventoryCommand extends ConsoleCommand {
         }
     }
 
-    private function _connectTmall($_sessionkey) {
+    private function _connectTmall($_sessionkey,$page_no) {
 
         $_taobaoConnect = new TaobaoConnectorInventory();
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
@@ -58,9 +58,7 @@ class InventoryCommand extends ConsoleCommand {
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
         $_taobaoConnect->__method = Yii::app()->params['taobao_api']['method5'];
         $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields5'];
-        $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey);
-        
-
+        $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey,$page_no);
         if (array_key_exists('error_response', $_items)) {
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
 //            exit(); 
@@ -88,24 +86,24 @@ class InventoryCommand extends ConsoleCommand {
                 ->setTitle('sheet1');
     }
 
-    //写入Excel
-    public function _insertExcel($rowIndex) {
-        //获取API属性
-        $_itemsTmallAll = $this->_getAPIValue();
-        foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
-            foreach ($_firstValue as $_secnodKey => $_secondValue) {
-                print_r($_secondValue);
-                $_inventory_num_iid = null;
-                if (array_key_exists("num_iid", $_secondValue)){
-                       $_inventory_num_iid = $_secondValue['num_iid'];
-                }
-                //插入Excel
-                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_inventory_num_iid);
-                $rowIndex = $rowIndex + 1;
-            }
-        }
-        return $rowIndex;
-    }
+//    //写入Excel
+//    public function _insertExcel($rowIndex) {
+//        //获取API属性
+//        $_itemsTmallAll = $this->_getAPIValue();
+//        foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
+//            foreach ($_firstValue as $_secnodKey => $_secondValue) {
+//                print_r($_secondValue);
+//                $_inventory_num_iid = null;
+//                if (array_key_exists("num_iid", $_secondValue)){
+//                       $_inventory_num_iid = $_secondValue['num_iid'];
+//                }
+//                //插入Excel
+//                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_inventory_num_iid);
+//                $rowIndex = $rowIndex + 1;
+//            }
+//        }
+//        return $rowIndex;
+//    }
 
     //Excel的尾部
     public function _endSaveExcel() {
@@ -127,25 +125,49 @@ class InventoryCommand extends ConsoleCommand {
 
         ob_start();
         $this->_startSaveExcel();
-        //Excel的头部
-        //$currentSheet = $this->PHPReader->getSheet(0);
-        $rowIndex = 2;
-        //循环写入
-        $this->_insertExcel($rowIndex);
+        $page_no = 1;
+        $_total_results = $this->_getTotalResults($page_no);
+        $_page = floor($_total_results / 5 ) + 1;
+        $rowIndex =2;
+         do {
+            $_itemsTmallAll = $this->_getAPIValue($page_no);
+            foreach ($_itemsTmallAll as $_firstKey => $_firstValue) 
+                {
+            foreach ($_firstValue as $_secnodKey => $_secondValue)
+                {
+            print_r($_secondValue);
+             $_inventory_num_iid = null;
+               if (array_key_exists("num_iid", $_secondValue)){
+                       $_inventory_num_iid = $_secondValue['num_iid'];
+                
+                }
+                //插入Excel	
+                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_inventory_num_iid);
+                $rowIndex = $rowIndex + 1;
+                }
+            $page_no = $page_no + 1;
+            $_page = $_page - 1;
+           
+                } 
+           }while(!$_page==0);
 
         $this->_endSaveExcel(); //Excel的尾部
         echo 'END--sku.xml';
     }
 
-    public function _splitStr($str) {
-
-        $arr0 = array();
-        $arr = explode(':', $str);
-        $color = explode(';', $arr[3])[0];
-        $size = $arr[6];
-        //添加元素到数组
-        array_push($arr0, $color, $size);
-        return $arr0;
+ public function _getTotalResults($page_no) {
+        $_itemsTmallNoAll = array();
+        
+        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no);
+        if (!empty($_itemsTmallNo)) {
+            if (array_key_exists('total_results', $_itemsTmallNo['items_inventory_get_response'])) {
+                array_push($_itemsTmallNoAll, $_itemsTmallNo['items_inventory_get_response']['total_results']);
+            }
+            //total_results=37
+            return $_itemsTmallNoAll[0];
+        } else {
+            return $_itemsTmallNo;
+        }
     }
 
 

@@ -7,11 +7,14 @@ class TaobaoConnectorOnSale {
     public $__sessionkey='' ;
     public $__method='';
     public $__fields='';
-    
-    public function connectTaobaoonsale($sessionkey){
+   
+    public function connectTaobaoonsale($sessionkey,$page_no){
         //参数数组
+        
         try{
+            
             $paramArr = array(
+                
                 'app_key' => $this->__appkey,
                 'session' => $sessionkey,
                 'method' =>  $this->__method,
@@ -20,6 +23,9 @@ class TaobaoConnectorOnSale {
                 'sign_method'=> 'md5',
                 'timestamp' => date('Y-m-d H:i:s'),
                 'fields' => $this->__fields,
+                'page_size' => '20',
+                'page_no' =>$page_no,
+//               
 //                'num_iid' => $num_iid//此处与淘宝API相对应
             );
             $sign = $this->_createSign($paramArr);

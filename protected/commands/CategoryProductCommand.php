@@ -15,42 +15,143 @@ class CategoryProductCommand extends ConsoleCommand {
     protected $skuArray = null;
     protected $itemArray = null;
     protected $titleArray = null;
+    protected $_parentFields= array();
+    protected $_skuFields= array();
+
     public function init(){
+        ini_set('memory_limit', '800M');
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        $this->readFileName = dirname(__FILE__).'/../../Excel/num_iid.xls';
+        $this->readFileName = dirname(__FILE__).'/../../Excel/OnSale_num_iid.xls';
         $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         $this->saveFileName = dirname(__FILE__).'/../../Excel/sku.xls';
         $this->PHPWrite = new PHPExcel();
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
-        //创建sku.xls
+//        创建sku.xls
         fopen($this->saveFileName, "w+");
         //数组初始化
-        $this->skuArray = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
-        $this->itemArray = array("num_iid","title","outer_id","approve_status");
+        $this->_parentFields = array("num_iid","title","outer_id","approve_status","skus");//skus must be the last one
+        $this->_skuFields = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
+//        $this->skuArray = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
+//        $this->itemArray = array("num_iid","title","outer_id","approve_status");
         $this->titleArray = array("num_iid","title","item_outer_id","approve_status","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
     }
     public function run($args){
-        $this->_Print();
+        $this->_generateExcel();
+//        $num_iid="40143397358";
+//        $aa= $this->_filterApiParentValue($num_iid);
+//        print_r($this->_filterApiSkuValue($aa,$num_iid));
     }
     //获取API属性
     public function _getAPIValue($num_iid){
         //num_iid不存在则返回NULL
         $_itemsTmallAll= array();
-        $_itemsTmall= $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$num_iid."");
+        $_itemsTmall= $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$num_iid);
         if(!empty($_itemsTmall)){
             if (array_key_exists('item',$_itemsTmall['item_get_response'])){
-                array_push($_itemsTmallAll, $_itemsTmall['item_get_response']['item']);
+                $_itemsTmallAll= $_itemsTmall['item_get_response']['item'];
             }
             return $_itemsTmallAll;
         }else{
             return $_itemsTmall;
         }
     }
+    
+    public function _filterApiParentValue($num_iid){
+        $_filterResult= array();
+        $_itemsTmallAll = $this->_getAPIValue($num_iid);
+
+        if(!empty($_itemsTmallAll)){
+            foreach ($this->_parentFields as $field){
+                if(array_key_exists($field,$_itemsTmallAll)){
+//                    array_push($_filterResult,$_itemsTmallAll[$fields]);
+                    $_filterResult[$field]= $_itemsTmallAll[$field];
+                }else{
+                    $_filterResult[$field]= "";
+                }
+            }
+            unset($_itemsTmallAll);
+            return $_filterResult;
+        }else{
+            Yii::log('Caught exception: num_iid:' .$num_iid. 'item not exists', 'error', 'system.fail');
+            return false;
+        }
+    }
+    
+    public function _filterApiSkuValue($_filterParentResult,$num_iid){
+        if(!empty($_filterParentResult['skus'])){
+            if(array_key_exists('sku', $_filterParentResult['skus'])){
+                foreach ($_filterParentResult['skus']['sku'] as $key=> $value){
+                    foreach($this->_skuFields as $field){
+                        if(!array_key_exists($field, $value)){
+                            $_filterParentResult['skus']['sku'][$key][$field]= "";
+                        }
+                    }
+                }
+            }else{
+                Yii::log('Caught exception: num_iid:' .$num_iid. 'sku not exists', 'error', 'system.fail');
+            }
+        }else{
+            $_filterParentResult['skus']['sku']= array();
+            Yii::log('Caught exception: num_iid:' .$num_iid. 'skus not exists', 'error', 'system.fail');
+        }
+        return $_filterParentResult;
+    }
+    
+    public function _insertExc($_numID,$_row){
+        $currentSheet = $this->PHPWrite->setActiveSheetIndex(0);
+        $_filterParentResult= $this->_filterApiParentValue($_numID);
+        $_filterResult = $this->_filterApiSkuValue($_filterParentResult, $_numID);
+//        print_r($_filterResult);exit();
+        unset($_filterParentResult);
+        if(count($_filterResult['skus']['sku'])==0){
+            $_skuQty=1;
+        }else{
+            $_skuQty= count($_filterResult['skus']['sku']);
+        }
+
+        for($i=0;$i<$_skuQty;$i++){
+            $index=65;
+            foreach ($this->_parentFields as $field){
+                if(!is_array($_filterResult[$field])){
+                    $currentSheet->setCellValue(chr($index).($_row+$i),$_filterResult[$field]);
+                    $index++;
+                }
+            }
+            foreach ($this->_skuFields as $sku) {
+                if (empty($_filterResult['skus']['sku'])){
+                    $currentSheet->setCellValue(chr($index).($_row+$i),NULL);
+                }else{
+                    $currentSheet->setCellValue(chr($index).($_row+$i),$_filterResult['skus']['sku'][$i][$sku]);
+                }
+                $index++;
+            }
+        }
+        $_newRow= $_row + $_skuQty;
+        return $_newRow;
+    }
+    
+    public function _generateExcel(){
+        ob_start();
+        $this->_startSaveExcel();//Excel的头部
+        $currentSheet = $this->PHPReader->getSheet(0);
+        $allRow = $currentSheet->getHighestRow();
+        //循环写入
+        $rowIndex = 2;
+        for($rowI=2;$rowI<=$allRow;$rowI++){
+            $num_iid = $this->_readExcelData($rowI, 'A');
+            $rowIndex = $this->_insertExc($num_iid,$rowIndex);
+            echo $rowIndex;
+        }
+        $this->_endSaveExcel();//Excel的尾部
+        echo 'END--sku.xml';
+    }
+    
     //写入Excel
     public function _insertExcel($num_iid,$rowIndex){
         //获取API属性
         $_itemsTmallAll = $this->_getAPIValue($num_iid);
+        print_r($_itemsTmallAll);
         $currentSheet = $this->PHPWrite->setActiveSheetIndex(0);
         if(!empty($_itemsTmallAll)){//条件1
             foreach ($_itemsTmallAll as $_firstKey=>$_firstValue){
@@ -105,6 +206,8 @@ class CategoryProductCommand extends ConsoleCommand {
         }
         return $rowIndex;
     }
+    
+    
     //读取Excel中的数据
     public function _readExcelData($rowIndex,$colIndex){
         //单元格位置
@@ -112,6 +215,8 @@ class CategoryProductCommand extends ConsoleCommand {
         $cell = $this->PHPReader->setactivesheetindex(0)->getCell($addr)->getValue();
         return $cell;
     }
+    
+    
     //Excel的头部
     public function _startSaveExcel(){
         $currentSheet = $this->PHPWrite->setactivesheetindex(0);
@@ -120,6 +225,8 @@ class CategoryProductCommand extends ConsoleCommand {
         }
         $this->PHPWrite->setactivesheetindex(0)->setTitle("Sheet1");
     }
+    
+    
     //Excel的尾部
     public function _endSaveExcel(){ 
         if(!is_writable($this->saveFileName)){
@@ -161,13 +268,9 @@ class CategoryProductCommand extends ConsoleCommand {
             return NULL;
         }
         if (array_key_exists('item_get_response',$_items)){
-            if (!empty($_items)){
                 return $_items ;           
-            }else{
-                Yii::log('No data parent_cid'.$num_iid, 'error', 'system.fail');
-                return NULL;
-            }
         }else{
+            Yii::log('item_get_response not exists:'.$num_iid, 'error', 'system.fail');
             return NULL;
         }
     }

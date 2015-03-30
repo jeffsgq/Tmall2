@@ -11,35 +11,121 @@ class CategoryItemCommand extends ConsoleCommand{
     protected $readFileName = null;
     protected $saveFileName = null;
     protected $_className = null;
-    //Category
-    protected $PHPReader2 = null;
-    protected $PHPWrite2 = null;
-    protected $readFileName2 = null;
-    protected $saveFileName2 = null;
     //EXCELTITLE
     protected $categoryTitle = null;
     protected $itemTitle = null;
+    protected $category = null;
     public function init(){
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        //Category
-        $this->readFileName2 = dirname(__FILE__).'/../../Excel/num_iid.xls';
-        $this->PHPReader2 = $this->PHPExcel->load($this->readFileName2);
-        $this->saveFileName2 = dirname(__FILE__).'/../../Excel/item.xls';
-        $this->PHPWrite2 = new PHPExcel();
+        $this->readFileName = dirname(__FILE__).'/../../Excel/num_iid.xls';
+        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
+        $this->saveFileName = dirname(__FILE__).'/../../Excel/category.xls';
+        $this->PHPWrite = new PHPExcel();
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
-        //创建category.xls、item.xls
-        fopen($this->saveFileName2, "w+");
+        //创建category.xls
+        fopen($this->saveFileName, "w+");
         //初始化Excel标题
-        $this->categoryTitle = array("num_iid","title","input_str","num","approve_status","cid_1","Category_1","cid_2","Category_2","cid_3","Category_3","cid_4","Category_4","cid_5","Category_5");
+        $this->categoryTitle = array("num_iid","title","input_str","num","approve_status","cid_1","Category_1","cid_2","Category_2","cid_3","Category_3","cid_4","Category_4");
         $this->itemTitle = array("num_iid","title","input_str","num","approve_status","cid1");
+        $this->category = array();
     }
     //执行方法
     public function run($args){
-        $this->_Print2();
-        $this->_Print();       
+        $this->_Print(); 
     }
-    //Excel的头部
+     //调整Excel表中属性的顺序
+    public function _order(){
+        $currentSheet = $this->PHPWrite->setActiveSheetIndex(0);
+        $rowN = $currentSheet->getHighestRow();
+        $colN = $currentSheet->getHighestColumn();
+        $i = ord($colN);
+        $currentSheet->setCellValue(chr($i+1).'1' , '叶子类目cid')
+                    ->setCellValue(chr($i+2).'1', '叶子类目Category');
+        //循环转换
+        for($j=2;$j<=$rowN;$j++){
+            $flag = $currentSheet->getCell("E".$j)->getValue();
+            if(!empty($flag)){
+                $index = 70;
+                while(!empty($flag)){
+                    $flag = $currentSheet->getCell(chr($index).$j)->getValue();
+                    $index++;
+                }
+                $currentSheet->setCellValue(chr($i+1).$j,$currentSheet->getCell(chr($index-3).$j)->getValue())
+                    ->setCellValue(chr($i+2).$j,$currentSheet->getCell(chr($index-2).$j)->getValue());
+            }
+        }
+    }
+    //循环输出并保存在Excel中
+    public function _Print(){
+        ob_start();
+        $this->_startSaveExcel();
+        $currentSheet = $this->PHPReader->getSheet(0);
+        $allRow = $currentSheet->getHighestRow();
+        //循环写入
+        for($rowIndex=2;$rowIndex<=$allRow;$rowIndex++){
+            $num_iid = $this->_readExcelData($rowIndex, 'A');    
+            $this->_insertExcel($num_iid,$rowIndex);   
+        }
+        $this->_order();
+        $this->_endSaveExcel();
+        echo 'END---category.xls';
+    }
+    //获取API属性
+    public function _getAPIValue($num_iid){
+        $_itemsTmallAll= array();
+        $_itemsTmall= $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$num_iid."");
+        if(!empty($_itemsTmall)){
+            if (array_key_exists('item',$_itemsTmall['item_get_response'])){
+                array_push($_itemsTmallAll, $_itemsTmall['item_get_response']['item']);
+            }
+            return $_itemsTmallAll;
+        }else{
+            return $_itemsTmall;
+        }
+    }
+    //出入到Excel
+    public function _insertExcel($num_iid,$i){
+        //获取API属性
+        $_itemsTmallAll = $this->_getAPIValue($num_iid);//一个$num_iid对应一列数据
+        if(!empty($_itemsTmallAll)){
+            $array = array();
+            $array2 = array();
+            foreach ($_itemsTmallAll as $_firstKey=>$_firstValue){
+                //获取Item数据
+                array_push($array, $_firstValue['num_iid'],$_firstValue['title'],$_firstValue['input_str'],$_firstValue['num'],$_firstValue['approve_status']);
+                //根据cid获取
+                $item = $this->_selectItems($_firstValue['cid']);
+                //将c_id存放数据组
+                array_push($array2,$_firstValue['cid'],$item['name']);
+                $cid = $item['parent_cid'];
+                while($cid!=0){ //当$item['parent_cid']为0时结束
+                    $item = $this->_selectItems($cid);
+                    $cid = $item['parent_cid'];
+                    //放入数组中
+                    array_push($array2,$item['c_id']);
+                    array_push($array2,$item['name']);
+                }
+            }
+            //写入Excel
+            for($j=0,$index = 65;$j<count($array);$j++,$index++){
+                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue(chr($index).$i, $array[$j]);
+            }
+            //写入Excel
+            $this->_orderALine($array2,$i);
+        }else{
+            //写入Excel
+            $this->PHPWrite->setActiveSheetIndex(0)->setCellValue("A".$i, $num_iid);
+        }
+    }
+    //读取Excel中的数据
+    public function _readExcelData($rowIndex,$colIndex){
+        $currentSheet = $this->PHPReader->getSheet(0);
+        $addr = $colIndex.$rowIndex;
+        $cell = $currentSheet->getCell($addr)->getValue();
+        return $cell;
+    }
+     //Excel的头部
     public function _startSaveExcel(){
         $currentSheet = $this->PHPWrite->setactivesheetindex(0);
         for($i=0,$index = 65;$i<count($this->categoryTitle);$i++,$index++){
@@ -60,199 +146,24 @@ class CategoryItemCommand extends ConsoleCommand{
         $objWriter = PHPExcel_IOFactory::createWriter($this->PHPWrite,'Excel5');  
         $objWriter->save($this->saveFileName);
     }
-    //写入数据
-    public function _Print(){
-        //EXCEL初始化
-        $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        $this->readFileName = dirname(__FILE__).'/../../Excel/item.xls';
-        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
-        $this->saveFileName = dirname(__FILE__).'/../../Excel/category.xls';
-        $this->PHPWrite = new PHPExcel();
-        fopen($this->saveFileName, "w+");
-        ob_start();
-        $this->_startSaveExcel();
-        $currentSheet = $this->PHPReader->getSheet(0);
-        $rowN = $currentSheet->getHighestRow();
-        $colIndex = 'F';
-        //循环读取Excel中的数据
-        for($rowIndex = 2;$rowIndex <= $rowN;$rowIndex++){
-            $cell = $this->_readExcelData($rowIndex,$colIndex); //$cell为cid
-            if(!empty($cell)){
-                $item = $this->_selectItems($cell); //$item为当前cid的对应值
-                $cid = $item['parent_cid'];
-                //Excel初始化
-                for($index = 65;$index<=69;$index++){
-                    $this->_writeExcelData($this->_readExcelData($rowIndex,  chr($index)), $rowIndex,chr($index));   
-                }                
-                $j = 72;//H
-                $this->_writeExcelData($item['c_id'], $rowIndex,'F');
-                $this->_writeExcelData($item['name'], $rowIndex,'G');
-                while($cid!=0){//当$item['parent_cid']为0时结束
-                    $item = $this->_selectItems($cid);
-                    $cid = $item['parent_cid'];
-                    //数据写入到Excel中
-                    $this->_writeExcelData($item['c_id'], $rowIndex, chr($j));
-                    $j = $j + 1;
-                    $this->_writeExcelData($item['name'], $rowIndex, chr($j));
-                    $j = $j + 1;
-                }
-            }else{
-                $this->_writeExcelData($this->_readExcelData($rowIndex,'A'), $rowIndex,'A');
-            }
-        }
-        $this->_order();
-        $this->_endSaveExcel();
-        echo 'END--category.xml';
-    }
-    //调整Excel表中属性的顺序
-    public function _order(){
-        $currentSheet = $this->PHPWrite->getSheet(0);
-        $rowN = $currentSheet->getHighestRow();
-        $colN = $currentSheet->getHighestColumn();
-        $i = ord($colN );
-        $currentSheet->setCellValue(chr($i+1).'1' , '叶子类目cid')
-                    ->setCellValue(chr($i+2).'1', '叶子类目Category');
-        //循环转换
-        for($j=2;$j<=$rowN;$j++){
-            $cid = $currentSheet->getCell('F'.$j)->getValue();
-            $Category = $currentSheet->getCell('G'.$j)->getValue();
-            //转换
-            $this->_orderALine($j, $i);
-            //插入
-             $currentSheet->setCellValue(chr($i+1).$j , $cid)
-                    ->setCellValue(chr($i+2).$j, $Category);  
-        }
-    }
     //调整一行的数据位置
-    public function _orderALine($row,$colN){//F开始
-        $array = array();
-        $index = 0;
-        $curSheet = $this->PHPWrite->getSheet(0);
-        //获取数据
-        for($i=70;$i<$colN;$i++){
-            if(!empty($curSheet->getCell(chr($i).$row)->getValue())){
-                $array[$index] = $curSheet->getCell(chr($i).$row)->getValue();
-                $index = $index + 1;
-            }else{
-                //如果为空则退出本次循环
-                break;
-            }
-        }
+    public function _orderALine($array,$row){//F开始
         $array = array_reverse($array);
         //插入数据
         $index_j = 70;
         $index_O = 71;
         for($i=0;$i<count($array);$i++){
            if($i%2==0){//偶数
-               $curSheet->setCellValue(chr($index_O).$row, $array[$i]);
+               $this->PHPWrite->setActiveSheetIndex(0)->setCellValue(chr($index_O).$row, $array[$i]);
                $index_O = $index_O + 2;
            }else{
-               $curSheet->setCellValue(chr($index_j).$row, $array[$i]);
+               $this->PHPWrite->setActiveSheetIndex(0)->setCellValue(chr($index_j).$row, $array[$i]);
                $index_j = $index_j + 2;
            }
         }
     }
-    //将数据写入到Excel中
-    public function _writeExcelData($data,$rowIndex,$colIndex){
-        $addr = $colIndex.$rowIndex;
-        $this->PHPWrite->setActiveSheetIndex(0)->setCellValue($addr,$data);
-    }
-    //读取Excel中的数据
-    public function _readExcelData($rowIndex,$colIndex){
-        $currentSheet = $this->PHPReader->getSheet(0);
-        $addr = $colIndex.$rowIndex;
-        $cell = $currentSheet->getCell($addr)->getValue();
-        return $cell;
-    }
-    //通过cid搜索商品
-    public function _selectItems($cid){
-        //建立数据库连接
-        $connection = Yii::app()->db;
-        $item = $connection->createCommand()
-                ->select('c_id,is_parent,name,parent_cid')
-                ->from('0_parentcid')
-                ->where('c_id=:cid',array(':cid'=>$cid))
-                ->queryRow();
-        return $item;
-    }
-    //Category
-    //读取Excel中的数据
-    public function _readExcelData2($rowIndex,$colIndex){
-        
-        $currentSheet = $this->PHPReader2->getSheet(0);
-        $addr =$colIndex.$rowIndex;
-        $cell = $currentSheet->getCell($addr)->getValue();
-        return $cell;
-    }
-    //获取API属性
-    public function _getAPIValue2($num_iid){
-        
-        $_itemsTmallAll= array();
-        $_itemsTmall= $this->_connectTmall2(Yii::app()->params['taobao_api']['accessToken'],$num_iid."");
-        if(!empty($_itemsTmall)){
-            if (array_key_exists('item',$_itemsTmall['item_get_response'])){
-                array_push($_itemsTmallAll, $_itemsTmall['item_get_response']['item']);
-            }
-            return $_itemsTmallAll;
-        }else{
-            return $_itemsTmall;
-        }
-    }
-     public function _insertExcel2($num_iid,$i){
-        //获取API属性
-        $_itemsTmallAll = $this->_getAPIValue2($num_iid);//一个$num_iid对应一列数据
-        if(!empty($_itemsTmallAll)){
-            $array = array();
-            foreach ($_itemsTmallAll as $_firstKey=>$_firstValue){
-                //获取Item数据
-                array_push($array, $_firstValue['num_iid'],$_firstValue['title'],$_firstValue['input_str'],$_firstValue['num'],$_firstValue['approve_status'],$_firstValue['cid']);
-                //插入Excel
-                for($j=0,$index = 65;$j<count($array);$j++,$index++){
-                    $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue(chr($index).$i, $array[$j]);
-                }
-            }
-        }else{
-            $this->PHPWrite2->setActiveSheetIndex(0)->setCellValue('A'.$i, $num_iid);
-        }
-    }
-    //Excel的头部
-    public function _startSaveExcel2(){
-        
-        $currentSheet = $this->PHPWrite2->setactivesheetindex(0);
-        for($i=0,$index = 65;$i<count($this->itemTitle);$i++,$index++){
-            $currentSheet->setCellValue(chr($index)."1", $this->itemTitle[$i]);    
-        }
-        $currentSheet->setTitle("Sheet1");
-    }
-    //Excel的尾部
-    public function _endSaveExcel2(){
-        if(!is_writable($this->saveFileName2)){
-            echo 'Can not Write';
-            exit();
-        }
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename='.$this->saveFileName2);
-        header('Cache-Control: max-age=0');
-        //创建文件使用Excel2003版本
-        $objWriter = PHPExcel_IOFactory::createWriter($this->PHPWrite2,'Excel5');  
-        $objWriter->save($this->saveFileName2);
-    }
-    //循环输出并保存在Excel中
-    public function _Print2(){
-        ob_start();
-        $this->_startSaveExcel2();
-        $currentSheet = $this->PHPReader2->getSheet(0);
-        $allRow = $currentSheet->getHighestRow();
-        //循环写入
-        for($rowIndex=2;$rowIndex<=$allRow;$rowIndex++){
-            $num_iid = $this->_readExcelData2($rowIndex, 'A');
-            $this->_insertExcel2($num_iid,$rowIndex);
-        }
-        $this->_endSaveExcel2();
-        echo 'END---item.xls'."\n";
-    }
     //连接淘宝API
-     private function _connectTmall2($_sessionkey,$num_iid){
+     private function _connectTmall($_sessionkey,$num_iid){
         $_taobaoConnect= new TaobaoConnectorItem();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
@@ -262,7 +173,6 @@ class CategoryItemCommand extends ConsoleCommand{
         $_items= $_taobaoConnect->connectTaobaoItem( $_sessionkey,$num_iid) ;
         if (array_key_exists('error_response',$_items)){
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
-//            exit(); 
             return NULL;
         }
         if (array_key_exists('item_get_response',$_items)){
@@ -270,12 +180,21 @@ class CategoryItemCommand extends ConsoleCommand{
                 return $_items ;           
             }else{
                 Yii::log('No data parent_cid'.$num_iid, 'error', 'system.fail');
-                
-//                exit();
                 return NULL;
             }
         }else{
             return NULL;
         }
+    }
+     //通过cid搜索商品
+    public function _selectItems($cid){
+        //建立数据库连接
+        $connection = Yii::app()->db;
+        $item = $connection->createCommand()
+                ->select('c_id,is_parent,name,parent_cid')
+                ->from('0_parentcid')
+                ->where('c_id=:cid',array(':cid'=>$cid))
+                ->queryRow();
+        return $item;
     }
 }

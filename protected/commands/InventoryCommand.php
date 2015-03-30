@@ -29,15 +29,12 @@ class InventoryCommand extends ConsoleCommand {
         $this->_Print();
     }
 
-    
-    
-    
-    
+
     //获取API属性
-    public function _getAPIValue($page_no) {
+    public function _getAPIValue($page_no,$page_size) {
         //num_iid不存在则返回NULL
         $_itemsTmallAll = array();
-        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no);
+        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no,$page_size);
         
         
         if (!empty($_itemsTmall)) {
@@ -50,7 +47,7 @@ class InventoryCommand extends ConsoleCommand {
         }
     }
 
-    private function _connectTmall($_sessionkey,$page_no) {
+    private function _connectTmall($_sessionkey,$page_no,$page_size) {
 
         $_taobaoConnect = new TaobaoConnectorInventory();
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
@@ -58,7 +55,7 @@ class InventoryCommand extends ConsoleCommand {
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
         $_taobaoConnect->__method = Yii::app()->params['taobao_api']['method5'];
         $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields5'];
-        $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey,$page_no);
+        $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey,$page_no,$page_size);
         if (array_key_exists('error_response', $_items)) {
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
 //            exit(); 
@@ -122,15 +119,15 @@ class InventoryCommand extends ConsoleCommand {
 
     //循环输出并保存在Excel中
     public function _Print() {
-
         ob_start();
         $this->_startSaveExcel();
         $page_no = 1;
-        $_total_results = $this->_getTotalResults($page_no);
-        $_page = floor($_total_results / 200) + 1;
+        $page_size= 200;
+        $_total_results = $this->_getTotalResults($page_no,$page_size);
+        $_page = floor($_total_results / $page_size) + 1;
         $rowIndex =2;
          do {
-            $_itemsTmallAll = $this->_getAPIValue($page_no);
+            $_itemsTmallAll = $this->_getAPIValue($page_no,$page_size);
             foreach ($_itemsTmallAll as $_firstKey => $_firstValue) 
                 {
             foreach ($_firstValue as $_secnodKey => $_secondValue)
@@ -152,13 +149,13 @@ class InventoryCommand extends ConsoleCommand {
            }while(!$_page==0);
 
         $this->_endSaveExcel(); //Excel的尾部
-        echo 'END--sku.xml';
+        echo '--END--';
     }
 
- public function _getTotalResults($page_no) {
+ public function _getTotalResults($page_no,$page_size) {
         $_itemsTmallNoAll = array();
         
-        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no);
+        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no,$page_size);
         if (!empty($_itemsTmallNo)) {
             if (array_key_exists('total_results', $_itemsTmallNo['items_inventory_get_response'])) {
                 array_push($_itemsTmallNoAll, $_itemsTmallNo['items_inventory_get_response']['total_results']);

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 Yii::$enableIncludePath = false;
 Yii::import('application.components.TaobaoConnectorOnSale');
@@ -7,13 +7,12 @@ require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' );
 include_once (dirname(__FILE__) . '/../extensions/PHPExcel/PHPExcel/IOFactory.php');
 
 class OnsaleCommand extends ConsoleCommand {
-     protected $PHPExcel = null;
+    protected $PHPExcel = null;
     protected $PHPReader = null;
     protected $PHPWrite = null;
     protected $readFileName = null;
     protected $saveFileName = null;
     protected $_className = null;
-    
     
       public function init() {
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
@@ -26,17 +25,17 @@ class OnsaleCommand extends ConsoleCommand {
       public function run($args) {
             $this->_print();
     }
-    
-    
+       
     public function _print(){
-          ob_start();
-          $this->_startSaveExcel();
+        ob_start();
+        $this->_startSaveExcel();
         $page_no = 1;
-        $_total_results = $this->_getTotalResults($page_no);
-        $_page = floor($_total_results / 200 ) + 1;
+        $page_size = 200;
+        $_total_results = $this->_getTotalResults($page_no,$page_size);
+        $_page = floor($_total_results / $page_size ) + 1;
         $rowIndex =2;
         do {
-            $_itemsTmallAll = $this->_getAPIValue($page_no);
+            $_itemsTmallAll = $this->_getAPIValue($page_no,$page_size);
             foreach ($_itemsTmallAll as $_firstKey => $_firstValue) 
                 {
             foreach ($_firstValue as $_secnodKey => $_secondValue)
@@ -87,10 +86,10 @@ class OnsaleCommand extends ConsoleCommand {
     
     
     //获取API属性
-    public function _getAPIValue($page_no) {
+    public function _getAPIValue($page_no,$page_size) {
         //num_iid不存在则返回NULL
         $_itemsTmallAll = array();
-        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'], $page_no);
+        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'], $page_no,$page_size);
         if (!empty($_itemsTmall)) {
             if (array_key_exists('item', $_itemsTmall['items_onsale_get_response']['items'])) {
                 array_push($_itemsTmallAll, $_itemsTmall['items_onsale_get_response']['items']['item']);
@@ -101,10 +100,10 @@ class OnsaleCommand extends ConsoleCommand {
         }
     }
     
-     public function _getTotalResults($page_no) {
+     public function _getTotalResults($page_no,$page_size) {
         $_itemsTmallNoAll = array();
         
-        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no);
+        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no,$page_size);
         if (!empty($_itemsTmallNo)) {
             if (array_key_exists('total_results', $_itemsTmallNo['items_onsale_get_response'])) {
                 array_push($_itemsTmallNoAll, $_itemsTmallNo['items_onsale_get_response']['total_results']);
@@ -116,14 +115,14 @@ class OnsaleCommand extends ConsoleCommand {
         }
     }
     //连接淘宝天猫API
-    private function _connectTmall($sessionkey,$page_no) {
+    private function _connectTmall($sessionkey,$page_no,$page_size) {
         $_taobaoConnect = new TaobaoConnectorOnSale();
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
         $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
         $_taobaoConnect->__method = Yii::app()->params['taobao_api']['method4'];
         $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields4'];
-        $_items = $_taobaoConnect->connectTaobaoonsale($sessionkey, $page_no);
+        $_items = $_taobaoConnect->connectTaobaoonsale($sessionkey, $page_no,$page_size);
         if (array_key_exists('error_response', $_items)) {
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
             return NULL;

@@ -8,7 +8,7 @@ class TaobaoConnectorInventory {
     public $__method='';
     public $__fields='';
     
-    public function connectTaobaoinventory($sessionkey,$page_no,$page_size){
+    public function connectTaobaoinventory($sessionkey,$page_no,$page_size,$banner){
         //参数数组
         try{
             $paramArr = array(
@@ -22,6 +22,7 @@ class TaobaoConnectorInventory {
                 'fields' => $this->__fields,
                 'page_size' =>$page_size,
                 'page_no' =>$page_no,
+                'banner' =>$banner,
 //              'num_iid' => $num_iid//此处 与淘宝API相对应
             );
             $sign = $this->_createSign($paramArr);

@@ -21,7 +21,7 @@ class CategoryProductCommand extends ConsoleCommand {
     public function init(){
         ini_set('memory_limit', '800M');
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        $this->readFileName = dirname(__FILE__).'/../../Excel/OnSale_num_iid.xls';
+        $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
         $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         $this->saveFileName = dirname(__FILE__).'/../../Excel/sku.xls';
         $this->PHPWrite = new PHPExcel();
@@ -30,11 +30,11 @@ class CategoryProductCommand extends ConsoleCommand {
 //        创建sku.xls
         fopen($this->saveFileName, "w+");
         //数组初始化
-        $this->_parentFields = array("num_iid","title","outer_id","approve_status","skus");//skus must be the last one
+        $this->_parentFields = array("num_iid","banner","title","outer_id","approve_status","skus");//skus must be the last one
         $this->_skuFields = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
 //        $this->skuArray = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
 //        $this->itemArray = array("num_iid","title","outer_id","approve_status");
-        $this->titleArray = array("num_iid","title","item_outer_id","approve_status","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
+        $this->titleArray = array("num_iid","banner","title","item_outer_id","approve_status","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
     }
     public function run($args){
         $this->_generateExcel();
@@ -57,12 +57,13 @@ class CategoryProductCommand extends ConsoleCommand {
         }
     }
     
-    public function _filterApiParentValue($num_iid){
+    public function _filterApiParentValue($num_iid,$banner){
         $_filterResult= array();
         $_itemsTmallAll = $this->_getAPIValue($num_iid);
-
+//        print_r($_itemsTmallAll);
         if(!empty($_itemsTmallAll)){
             foreach ($this->_parentFields as $field){
+                $_filterResult['banner']= $banner;
                 if(array_key_exists($field,$_itemsTmallAll)){
 //                    array_push($_filterResult,$_itemsTmallAll[$fields]);
                     $_filterResult[$field]= $_itemsTmallAll[$field];
@@ -98,9 +99,9 @@ class CategoryProductCommand extends ConsoleCommand {
         return $_filterParentResult;
     }
     
-    public function _insertExc($_numID,$_row){
+    public function _insertExc($_numID,$banner,$_row){
         $currentSheet = $this->PHPWrite->setActiveSheetIndex(0);
-        $_filterParentResult= $this->_filterApiParentValue($_numID);
+        $_filterParentResult= $this->_filterApiParentValue($_numID,$banner);
         $_filterResult = $this->_filterApiSkuValue($_filterParentResult, $_numID);
 //        print_r($_filterResult);exit();
         unset($_filterParentResult);
@@ -140,73 +141,17 @@ class CategoryProductCommand extends ConsoleCommand {
         $rowIndex = 2;
         for($rowI=2;$rowI<=$allRow;$rowI++){
             $num_iid = $this->_readExcelData($rowI, 'A');
-            $rowIndex = $this->_insertExc($num_iid,$rowIndex);
-            echo $rowIndex;
+            $banner = $this->_readExcelData($rowI, 'B');
+            if(!empty($num_iid)){
+               $rowIndex = $this->_insertExc($num_iid,$banner,$rowIndex); 
+            }
+//            echo $rowIndex;
         }
         $this->_endSaveExcel();//Excel的尾部
         echo 'END--sku.xml';
     }
     
-    //写入Excel
-    public function _insertExcel($num_iid,$rowIndex){
-        //获取API属性
-        $_itemsTmallAll = $this->_getAPIValue($num_iid);
-        print_r($_itemsTmallAll);
-        $currentSheet = $this->PHPWrite->setActiveSheetIndex(0);
-        if(!empty($_itemsTmallAll)){//条件1
-            foreach ($_itemsTmallAll as $_firstKey=>$_firstValue){
-                //初始化数组ITEM
-                $item_Array = array("num_iid"=>null,"title"=>null,"outer_id"=>null,"approve_status"=>null);
-                //打印出TITLE
-                $flag = false;
-                $_secondVA = null;
-                foreach ($_firstValue as $_secnodKey=>$_secondValue){
-                    //存储对应属性
-                    foreach ($item_Array as $key => $value) {
-                        if($_secnodKey==$key){
-                            $item_Array[$key] = $_firstValue[$key];
-                        }
-                    }
-                    if(is_array($_secondValue)){
-                        $_secondVA = $_secondValue;
-                        $flag = true;
-                    }
-                 }
-                if($flag){
-                    foreach ($_secondVA as $_thirdKey=>$_thirdValue){//行数 
-                            foreach ($_thirdValue as $_fourthKey=>$_fourthValue){//列数
-                                //初始化数组SKU
-                                $sku_Array = array("sku_id"=>null,"outer_id"=>null,"quantity"=>null,"with_hold_quantity"=>null,"price"=>null,"properties_name"=>null);
-                                foreach ($_fourthValue as $_fifthhKey => $_fifthhValue) {
-                                    //存储对应属性
-                                    foreach ($sku_Array as $key => $value) {
-                                        if($_fifthhKey==$key){
-                                            $sku_Array[$key] = $_fifthhValue;
-                                        }
-                                    }   
-                                }
-                                //将数据插入到EXCEL中
-                                $index = 65;
-                                foreach ($item_Array as $key => $value) {
-                                    $currentSheet->setCellValue(chr($index).$rowIndex,$item_Array[$key]);
-                                    $index ++;
-                                }
-                                foreach ($sku_Array as $key => $value) {
-                                    $currentSheet->setCellValue(chr($index).$rowIndex,$sku_Array[$key]);
-                                    $index ++;
-                                }
-                                $rowIndex = $rowIndex + 1; 
-                            } 
-                        }
-                }
-            }
-        }else{//条件2
-             $currentSheet->setCellValue('A'.$rowIndex,$num_iid);
-             $rowIndex ++;
-        }
-        return $rowIndex;
-    }
-    
+   
     
     //读取Excel中的数据
     public function _readExcelData($rowIndex,$colIndex){
@@ -240,21 +185,7 @@ class CategoryProductCommand extends ConsoleCommand {
         $objWriter = PHPExcel_IOFactory::createWriter($this->PHPWrite,'Excel5');  
         $objWriter->save($this->saveFileName);
     }
-    //循环输出并保存在Excel中
-    public function _Print(){
-        ob_start();
-        $this->_startSaveExcel();//Excel的头部
-        $currentSheet = $this->PHPReader->getSheet(0);
-        $allRow = $currentSheet->getHighestRow();
-        //循环写入
-        $rowIndex = 2;
-        for($rowI=2;$rowI<=$allRow;$rowI++){
-            $num_iid = $this->_readExcelData($rowI, 'A');
-            $rowIndex = $this->_insertExcel($num_iid,$rowIndex);
-        }
-        $this->_endSaveExcel();//Excel的尾部
-        echo 'END--sku.xml';
-    }
+   
     private function _connectTmall($_sessionkey,$num_iid){
         $_taobaoConnect= new TaobaoConnectorSKU();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;

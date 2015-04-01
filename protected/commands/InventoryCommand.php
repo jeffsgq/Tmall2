@@ -33,8 +33,11 @@ class InventoryCommand extends ConsoleCommand {
         $_itemsTmallAll = array();
         $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'], $page_no, $page_size, $banner);
         if (!empty($_itemsTmall)) {
-            if (array_key_exists('item', $_itemsTmall['items_inventory_get_response']['items'])) {
+           if (array_key_exists('items', $_itemsTmall['items_inventory_get_response'])) {  //['items']
                 array_push($_itemsTmallAll, $_itemsTmall['items_inventory_get_response']['items']['item']);
+            }
+            else{
+               array_push($_itemsTmallAll, null);
             }
             return $_itemsTmallAll;
         } else {
@@ -54,7 +57,6 @@ class InventoryCommand extends ConsoleCommand {
         $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey, $page_no, $page_size, $banner);
         if (array_key_exists('error_response', $_items)) {
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
-//            exit(); 
             return NULL;
         }
         if (array_key_exists('items_inventory_get_response', $_items)) {
@@ -122,12 +124,20 @@ class InventoryCommand extends ConsoleCommand {
     }
 
     public function _Print2st($page_no, $page_size, $row){
-        $banner = 'sold_out';  //sold_outnever_on_shelf
+        $banner = 'sold_out';  //never_on_shelf
         $_total_results = $this->_getTotalResults($page_no, $page_size, $banner);
         $_page = floor($_total_results / $page_size) + 1;
         do {
             $_itemsTmallAll = $this->_getAPIValue($page_no, $page_size, $banner);
-           
+//            print_r($_itemsTmallAll);
+//            echo '123';
+//            exit();
+            if ( current($_itemsTmallAll)==FALSE){
+                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $row, "0000");
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $row, $banner);
+                    break;
+            }
+            else{
             foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
                 foreach ($_firstValue as $_secnodKey => $_secondValue) {
                     print_r($_secondValue);
@@ -143,7 +153,7 @@ class InventoryCommand extends ConsoleCommand {
                 $page_no = $page_no + 1;
                 $_page = $_page - 1;
             }
-        
+        }
         } while (!$_page == 0);
       
         echo '---sold_out---';

@@ -14,7 +14,6 @@ class InventoryCommand extends ConsoleCommand {
     protected $readFileName = null;
     protected $saveFileName = null;
     protected $_className = null;
-    
 
     public function init() {
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
@@ -22,32 +21,29 @@ class InventoryCommand extends ConsoleCommand {
         $this->PHPWrite = new PHPExcel();
         $this->_className = get_class();
         $this->beforeAction($this->_className, '');
-
     }
 
     public function run($args) {
         $this->_Print();
     }
 
-
     //获取API属性
-    public function _getAPIValue($page_no,$page_size,$banner) {
+    public function _getAPIValue($page_no, $page_size, $banner) {
         //num_iid不存在则返回NULL
         $_itemsTmallAll = array();
-        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no,$page_size,$banner);
-        
-        
+        $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'], $page_no, $page_size, $banner);
         if (!empty($_itemsTmall)) {
-            if (array_key_exists('item', $_itemsTmall['items_inventory_get_response']['items'])) { 
+            if (array_key_exists('item', $_itemsTmall['items_inventory_get_response']['items'])) {
                 array_push($_itemsTmallAll, $_itemsTmall['items_inventory_get_response']['items']['item']);
             }
             return $_itemsTmallAll;
         } else {
+
             return $_itemsTmall;
         }
     }
 
-    private function _connectTmall($_sessionkey,$page_no,$page_size,$banner) {
+    private function _connectTmall($_sessionkey, $page_no, $page_size, $banner) {
 
         $_taobaoConnect = new TaobaoConnectorInventory();
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
@@ -55,7 +51,7 @@ class InventoryCommand extends ConsoleCommand {
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
         $_taobaoConnect->__method = Yii::app()->params['taobao_api']['method5'];
         $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields5'];
-        $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey,$page_no,$page_size,$banner);
+        $_items = $_taobaoConnect->connectTaobaoinventory($_sessionkey, $page_no, $page_size, $banner);
         if (array_key_exists('error_response', $_items)) {
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
 //            exit(); 
@@ -80,27 +76,9 @@ class InventoryCommand extends ConsoleCommand {
         $this->PHPWrite->setactivesheetindex(0)
                 //向Excel中添加数据
                 ->setCellValue('A1', 'Inventory_num_iid')
+                ->setCellValue('B1', 'Banner')
                 ->setTitle('sheet1');
     }
-
-//    //写入Excel
-//    public function _insertExcel($rowIndex) {
-//        //获取API属性
-//        $_itemsTmallAll = $this->_getAPIValue();
-//        foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
-//            foreach ($_firstValue as $_secnodKey => $_secondValue) {
-//                print_r($_secondValue);
-//                $_inventory_num_iid = null;
-//                if (array_key_exists("num_iid", $_secondValue)){
-//                       $_inventory_num_iid = $_secondValue['num_iid'];
-//                }
-//                //插入Excel
-//                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_inventory_num_iid);
-//                $rowIndex = $rowIndex + 1;
-//            }
-//        }
-//        return $rowIndex;
-//    }
 
     //Excel的尾部
     public function _endSaveExcel() {
@@ -117,57 +95,85 @@ class InventoryCommand extends ConsoleCommand {
         $objWriter->save($this->saveFileName);
     }
 
+    public function _Print1st($page_no, $page_size, $rowIndex) {
+        $banner = 'for_shelved';
+        $_total_results = $this->_getTotalResults($page_no, $page_size, $banner);
+        $_page = floor($_total_results / $page_size) + 1;
+        do {
+            $_itemsTmallAll = $this->_getAPIValue($page_no, $page_size, $banner);
+            foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
+                foreach ($_firstValue as $_secnodKey => $_secondValue) {
+                    print_r($_secondValue);
+                    $_inventory_num_iid = null;
+                    if (array_key_exists("num_iid", $_secondValue)) {
+                        $_inventory_num_iid = $_secondValue['num_iid'];
+                    }
+                    //插入Excel	
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_inventory_num_iid);
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $rowIndex, $banner);
+                    $rowIndex = $rowIndex + 1;
+                }
+                $page_no = $page_no + 1;
+                $_page = $_page - 1;
+            }
+        } while (!$_page == 0);
+        echo '---for_shelved---';
+        return $rowIndex;
+    }
+
+    public function _Print2st($page_no, $page_size, $row){
+        $banner = 'sold_out';  //sold_outnever_on_shelf
+        $_total_results = $this->_getTotalResults($page_no, $page_size, $banner);
+        $_page = floor($_total_results / $page_size) + 1;
+        do {
+            $_itemsTmallAll = $this->_getAPIValue($page_no, $page_size, $banner);
+           
+            foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
+                foreach ($_firstValue as $_secnodKey => $_secondValue) {
+                    print_r($_secondValue);
+                    $_inventory_num_iid = null;
+                    if (array_key_exists("num_iid", $_secondValue)) {
+                        $_inventory_num_iid = $_secondValue['num_iid'];
+                    }
+                    //插入Excel	
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $row, $_inventory_num_iid);
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $row, $banner);
+                    $row = $row + 1;
+                }
+                $page_no = $page_no + 1;
+                $_page = $_page - 1;
+            }
+        
+        } while (!$_page == 0);
+      
+        echo '---sold_out---';
+    }
+
     //循环输出并保存在Excel中
     public function _Print() {
         ob_start();
         $this->_startSaveExcel();
         $page_no = 1;
-        $page_size= 200;
-        $banner='sold_out,for_shelved';
-        $_total_results = $this->_getTotalResults($page_no,$page_size,$banner);
-        $_page = floor($_total_results / $page_size) + 1;
-        $rowIndex =2;
-         do {
-            $_itemsTmallAll = $this->_getAPIValue($page_no,$page_size,$banner);
-            foreach ($_itemsTmallAll as $_firstKey => $_firstValue) 
-                {
-            foreach ($_firstValue as $_secnodKey => $_secondValue)
-                {
-            print_r($_secondValue);
-             $_inventory_num_iid = null;
-               if (array_key_exists("num_iid", $_secondValue)){
-                       $_inventory_num_iid = $_secondValue['num_iid'];
-                
-                }
-                //插入Excel	
-                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_inventory_num_iid);
-                $rowIndex = $rowIndex + 1;
-                }
-            $page_no = $page_no + 1;
-            $_page = $_page - 1;
-           
-                } 
-           }while(!$_page==0);
-
+        $page_size = 200;
+        $rowIndex = 2;
+        $row=$this->_Print1st($page_no, $page_size, $rowIndex);
+        $this->_Print2st($page_no, $page_size, $row);
         $this->_endSaveExcel(); //Excel的尾部
         echo '--END--';
     }
 
- public function _getTotalResults($page_no,$page_size,$banner) {
+    public function _getTotalResults($page_no, $page_size, $banner) {
         $_itemsTmallNoAll = array();
-        
-        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],$page_no,$page_size,$banner);
+        $_itemsTmallNo = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'], $page_no, $page_size, $banner);
         if (!empty($_itemsTmallNo)) {
             if (array_key_exists('total_results', $_itemsTmallNo['items_inventory_get_response'])) {
                 array_push($_itemsTmallNoAll, $_itemsTmallNo['items_inventory_get_response']['total_results']);
             }
-            //total_results=37
+           
             return $_itemsTmallNoAll[0];
         } else {
             return $_itemsTmallNo;
         }
     }
-
-
 
 }

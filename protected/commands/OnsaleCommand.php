@@ -1,5 +1,4 @@
-    <?php
-
+<?php
 Yii::$enableIncludePath = false;
 Yii::import('application.components.TaobaoConnectorOnSale');
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
@@ -20,6 +19,7 @@ class OnsaleCommand extends ConsoleCommand {
         $this->PHPWrite = new PHPExcel();
         $this->_className = get_class();
         $this->beforeAction($this->_className, '');
+        fopen($this->saveFileName, "w+");
     }
     
       public function run($args) {
@@ -47,6 +47,7 @@ class OnsaleCommand extends ConsoleCommand {
                 }
                 //插入Excel	
                 $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $rowIndex, $_onsale_num_iid);
+                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $rowIndex, 'OnSale');
                 $rowIndex = $rowIndex + 1;
                 }
             $page_no = $page_no + 1;
@@ -66,6 +67,7 @@ class OnsaleCommand extends ConsoleCommand {
         $this->PHPWrite->setactivesheetindex(0)
                 //向Excel中添加数据
                 ->setCellValue('A1', 'OnSale_num_iid')
+                ->setCellValue('B1', 'Banner_OnSale')
                 ->setTitle('sheet1');
     }
 

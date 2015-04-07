@@ -4,6 +4,7 @@ Yii::import('application.components.TaobaoConnectorSKU') ;
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
 include_once (dirname(__FILE__).'/../extensions/PHPExcel/PHPExcel/IOFactory.php');
+PHPExcel_CachedObjectStorageFactory::cache_in_memory_serialized;
 class CategoryProductCommand extends ConsoleCommand { 
     protected $PHPExcel = null;
     protected $PHPReader = null;
@@ -21,35 +22,44 @@ class CategoryProductCommand extends ConsoleCommand {
     public function init(){
         ini_set('memory_limit', '800M');
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-//        $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
-//        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
-        $this->saveFileName = dirname(__FILE__).'/../../Excel/sku.xls';
         $this->PHPWrite = new PHPExcel();
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
-//        创建sku.xls
-        fopen($this->saveFileName, "w+");
         //数组初始化
         $this->_parentFields = array("num_iid","banner","title","outer_id","approve_status","skus");//skus must be the last one
         $this->_skuFields = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
-//        $this->skuArray = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
-//        $this->itemArray = array("num_iid","title","outer_id","approve_status");
         $this->titleArray = array("num_iid","banner","title","item_outer_id","approve_status","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
     }
     public function run($choic){
+        $this->_prompt($choic);
         switch ($choic[0]) {
             case 'inventory':
                 $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/Inventory_sku.xls';
                 break;
             case 'onsale':
                 $this->readFileName = dirname(__FILE__).'/../../Excel/Onsale_num_iid.xls';
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/Onsale_sku.xls';
                 break;
+            default:
+                echo "**************************************************\n"
+                    . "Please input parameter : onsale or inventory\n"
+                    . "**************************************************";
+                exit();
         }
         $this->PHPReader = $this->PHPExcel->load($this->readFileName);
+        fopen($this->saveFileName, "w+");
         $this->_generateExcel();
-//        $num_iid="40143397358";
-//        $aa= $this->_filterApiParentValue($num_iid);
-//        print_r($this->_filterApiSkuValue($aa,$num_iid));
+    }
+    //parameter prompt
+    public function _prompt($args){
+        if(empty($args)){
+            echo "**************************************************\n"
+            . "Please input parement : onsale or inventory\n"
+            . "Like that:categoryproduct onsale\n"
+            . "**************************************************";
+            exit();
+        }
     }
     //获取API属性
     public function _getAPIValue($num_iid){
@@ -157,7 +167,7 @@ class CategoryProductCommand extends ConsoleCommand {
 //            echo $rowIndex;
         }
         $this->_endSaveExcel();//Excel的尾部
-        echo 'END--sku.xml';
+        echo '-------------END-------------';
     }
     
    

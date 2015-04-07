@@ -21,7 +21,6 @@ class InventoryCommand extends ConsoleCommand {
         $this->PHPWrite = new PHPExcel();
         $this->_className = get_class();
         $this->beforeAction($this->_className, '');
-        fopen($this->saveFileName, "w+");
     }
 
     public function run($args) {
@@ -34,10 +33,11 @@ class InventoryCommand extends ConsoleCommand {
         $_itemsTmallAll = array();
         $_itemsTmall = $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'], $page_no, $page_size, $banner);
         if (!empty($_itemsTmall)) {
-            if (array_key_exists('items', $_itemsTmall['items_inventory_get_response'])) {  //['items']
+           if (array_key_exists('items', $_itemsTmall['items_inventory_get_response'])) {  //['items']
                 array_push($_itemsTmallAll, $_itemsTmall['items_inventory_get_response']['items']['item']);
-            } else {
-                array_push($_itemsTmallAll, null);
+            }
+            else{
+               array_push($_itemsTmallAll, null);
             }
             return $_itemsTmallAll;
         } else {
@@ -118,41 +118,44 @@ class InventoryCommand extends ConsoleCommand {
                 $page_no = $page_no + 1;
                 $_page = $_page - 1;
             }
-        } while (!$_page == 0); 
+        } while (!$_page == 0);
         echo '---for_shelved---';
         return $rowIndex;
     }
 
-    public function _Print2st($page_no, $page_size, $row) {
+    public function _Print2st($page_no, $page_size, $row){
         $banner = 'sold_out';  //never_on_shelf
         $_total_results = $this->_getTotalResults($page_no, $page_size, $banner);
         $_page = floor($_total_results / $page_size) + 1;
         do {
             $_itemsTmallAll = $this->_getAPIValue($page_no, $page_size, $banner);
-
-            if (current($_itemsTmallAll) == FALSE) {
-//                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $row, "0000");
-                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $row, $banner);
-                break;
-            } else {
-                foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
-                    foreach ($_firstValue as $_secnodKey => $_secondValue) {
-                        print_r($_secondValue);
-                        $_inventory_num_iid = null;
-                        if (array_key_exists("num_iid", $_secondValue)) {
-                            $_inventory_num_iid = $_secondValue['num_iid'];
-                        }
-                        //插入Excel	
-                        $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $row, $_inventory_num_iid);
-                        $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $row, $banner);
-                        $row = $row + 1;
-                    }
-                    $page_no = $page_no + 1;
-                    $_page = $_page - 1;
-                }
+//            print_r($_itemsTmallAll);
+//            echo '123';
+//            exit();
+            if ( current($_itemsTmallAll)==FALSE){
+                $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $row, "0000");
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $row, $banner);
+                    break;
             }
+            else{
+            foreach ($_itemsTmallAll as $_firstKey => $_firstValue) {
+                foreach ($_firstValue as $_secnodKey => $_secondValue) {
+                    print_r($_secondValue);
+                    $_inventory_num_iid = null;
+                    if (array_key_exists("num_iid", $_secondValue)) {
+                        $_inventory_num_iid = $_secondValue['num_iid'];
+                    }
+                    //插入Excel	
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('A' . $row, $_inventory_num_iid);
+                    $this->PHPWrite->setActiveSheetIndex(0)->setCellValue('B' . $row, $banner);
+                    $row = $row + 1;
+                }
+                $page_no = $page_no + 1;
+                $_page = $_page - 1;
+            }
+        }
         } while (!$_page == 0);
-
+      
         echo '---sold_out---';
     }
 
@@ -163,7 +166,7 @@ class InventoryCommand extends ConsoleCommand {
         $page_no = 1;
         $page_size = 200;
         $rowIndex = 2;
-        $row = $this->_Print1st($page_no, $page_size, $rowIndex);
+        $row=$this->_Print1st($page_no, $page_size, $rowIndex);
         $this->_Print2st($page_no, $page_size, $row);
         $this->_endSaveExcel(); //Excel的尾部
         echo '--END--';
@@ -176,7 +179,7 @@ class InventoryCommand extends ConsoleCommand {
             if (array_key_exists('total_results', $_itemsTmallNo['items_inventory_get_response'])) {
                 array_push($_itemsTmallNoAll, $_itemsTmallNo['items_inventory_get_response']['total_results']);
             }
-
+           
             return $_itemsTmallNoAll[0];
         } else {
             return $_itemsTmallNo;

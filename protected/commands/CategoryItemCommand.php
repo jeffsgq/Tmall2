@@ -113,6 +113,9 @@ class CategoryItemCommand extends ConsoleCommand{
             }
             //写入Excel
             $this->_orderALine($array2,$i);
+            //释放内存
+            unset($array);
+            unset($array2);
         }else{
             //写入Excel
             $this->PHPWrite->setActiveSheetIndex(0)->setCellValue("A".$i, $num_iid);

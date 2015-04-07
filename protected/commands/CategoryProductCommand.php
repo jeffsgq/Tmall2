@@ -21,8 +21,8 @@ class CategoryProductCommand extends ConsoleCommand {
     public function init(){
         ini_set('memory_limit', '800M');
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
-        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
+//        $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
+//        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         $this->saveFileName = dirname(__FILE__).'/../../Excel/sku.xls';
         $this->PHPWrite = new PHPExcel();
         $this->_className= get_class() ;
@@ -36,7 +36,16 @@ class CategoryProductCommand extends ConsoleCommand {
 //        $this->itemArray = array("num_iid","title","outer_id","approve_status");
         $this->titleArray = array("num_iid","banner","title","item_outer_id","approve_status","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
     }
-    public function run($args){
+    public function run($choic){
+        switch ($choic[0]) {
+            case 'inventory':
+                $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
+                break;
+            case 'onsale':
+                $this->readFileName = dirname(__FILE__).'/../../Excel/Onsale_num_iid.xls';
+                break;
+        }
+        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         $this->_generateExcel();
 //        $num_iid="40143397358";
 //        $aa= $this->_filterApiParentValue($num_iid);

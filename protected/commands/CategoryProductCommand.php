@@ -26,11 +26,13 @@ class CategoryProductCommand extends ConsoleCommand {
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
         //数组初始化
-        $this->_parentFields = array("num_iid","banner","title","outer_id","approve_status","skus");//skus must be the last one
+        $this->_parentFields = array("num_iid","banner","title","outer_id","approve_status","num","skus");//skus must be the last one
         $this->_skuFields = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
-        $this->titleArray = array("num_iid","banner","title","item_outer_id","approve_status","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
+        $this->titleArray = array("num_iid","banner","title","item_outer_id","approve_status","num","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
     }
     public function run($choic){
+//         $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],'2100636162534');
+//         exit();
         $this->_prompt($choic);
         switch ($choic[0]) {
             case 'inventory':

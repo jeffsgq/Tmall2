@@ -8,7 +8,7 @@ class TaobaoConnectorTraderates {
     public $__method='';
     public $__fields='';
     
-    public function connectTaobaoTraderates($sessionkey,$start_date,$end_date){
+    public function connectTaobaoTraderates($sessionkey,$start_date,$end_date,$page_no){
         //参数数组
         try{
             $paramArr = array(
@@ -22,6 +22,9 @@ class TaobaoConnectorTraderates {
                 'fields' => $this->__fields,
                 'rate_type' => 'get',
                 'role' => 'buyer',
+                'use_has_next' =>'true',
+                'page_size' => 150,
+                'page_no' =>$page_no,
                 'start_date' => $start_date,//此处必须与淘宝API相对应
                 'end_date' => $end_date
             );

@@ -12,15 +12,17 @@ class TradeCommand extends ConsoleCommand {
     protected $titleArray = null;
     protected $_tradeFields= array();
     protected $_tradeFields2= array();
+    protected $_tradeFields2_order= array();
     protected $PHPWrite = null;
     protected $saveFileName = null;
     public function init(){
         ini_set('memory_limit', '800M');
         $this->PHPWrite = new PHPExcel();
         $this->saveFileName = dirname(__FILE__).'/../../Excel/trades.xls';
-        $this->_tradeFields = array("num_iid","tid","nick","result","item_title","content");
+        $this->_tradeFields = array("tid","oid","nick","result","content");
         $this->_tradeFields2 = array("created", "payment");
-        $this->titleArray = array("num_iid","tid","nick","result","item_title","content","created","payment");
+        $this->_tradeFields2_order = array("title", "outer_sku_id", "oid");
+        $this->titleArray = array("tid","oid","nick","result","outer_sku_id","title","content","created","payment");
         fopen($this->saveFileName, "w+");
     }
     public function run($args){
@@ -40,8 +42,16 @@ class TradeCommand extends ConsoleCommand {
         }
     }
     public function _getTraderatesAPIValue($start_date,$end_date){
-        $_tradesTmall= $this->_connectTmall_Traderates(Yii::app()->params['taobao_api']['accessToken'],$start_date,$end_date);
-        return $this->_formatArray($_tradesTmall['traderates_get_response']['trade_rates']);
+        $page_no = 0;
+        $_tradesTmall = array();
+        do{
+           $page_no++;
+           $_tradeTmall= $this->_connectTmall_Traderates(Yii::app()->params['taobao_api']['accessToken'],$start_date,$end_date,$page_no);
+           if(array_key_exists('trade_rates', $_tradeTmall['traderates_get_response'])){
+               array_push($_tradesTmall, $_tradeTmall['traderates_get_response']['trade_rates']['trade_rate']);
+           }
+        }while($_tradeTmall['traderates_get_response']['has_next']==1);
+        return $this->_formatArray($_tradesTmall);
     }
     //获取API属性
     public function _getTradeAPIValue($tid) {
@@ -58,26 +68,62 @@ class TradeCommand extends ConsoleCommand {
             return NULL;
         }
     }
-    public function _getTrade($tid) {
+     public function _getTradeAPIValue_orders($tid) {
+        $_itemsTmallAll_orders = array();
+        $_itemsTmall = $this->_connectTmall_orders(Yii::app()->params['taobao_api']['accessToken'], $tid);
+        if (!empty($_itemsTmall)) {
+            if (array_key_exists('trade', $_itemsTmall['trade_get_response'])) {
+                array_push($_itemsTmallAll_orders, $_itemsTmall['trade_get_response']['trade']['orders']['order']);
+            } else {
+                array_push($_itemsTmallAll_orders, null);
+            }
+            return $_itemsTmallAll_orders;
+        } else {
+
+            return $_itemsTmall;
+        }
+    }
+    public function _getTrade($tid,$oid) {
         $TradeResult = array();
         $_itemTmallAll = $this->_getTradeAPIValue($tid);
+        $_itemTmallAll_orders = $this->_getTradeAPIValue_orders($tid);
         if (!empty($_itemTmallAll)) {
-            foreach ($_itemTmallAll as $_firstkey => $_firstvalue) {
-                $var_array = array();
-                foreach ($this->_tradeFields2 as $field) {
-                    if (array_key_exists($field, $_firstvalue)) {
-                        $var_array[$field] = $_firstvalue[$field];
-                    } else {
-                        $var_array[$field] = "";
+           foreach ($_itemTmallAll as $_firstkey => $_firstvalue) {
+               foreach ($this->_tradeFields2 as $field) {
+                   if (array_key_exists($field, $_firstvalue)) {
+                       $var_array[$field] = $_firstvalue[$field];
+                   }
+                   else {
+                    $var_array[$field] = "";
+                   }
+               }
+           } 
+       }
+       else{
+           return NULL;
+       }
+       if (!empty($_itemTmallAll_orders)) {
+            for ($i = 1; $i <= count($_itemTmallAll_orders); $i++) {
+                foreach ($_itemTmallAll_orders[$i-1] as $_firstkey => $_firstvalue) {
+                    foreach ($this->_tradeFields2_order as $field) {
+                        if (array_key_exists($field, $_firstvalue)) {
+                            $var_array_orders[$field] = $_firstvalue[$field];  
+                        }
+                        else
+                        {
+                         $var_array_orders[$field] = "";
+                        }
                     }
                 }
-                $TradeResult = $var_array;
-                unset($var_array);
+                if($var_array_orders['oid']==$oid){
+                        $TradeResult = array_merge($var_array,$var_array_orders);
+                }else{
+                    $var_array_orders = "";
+                    continue;
+                }
             }
-            unset($_itemTmallAll);
-            return $TradeResult;
-            
-        } else {
+            return  $TradeResult;       
+        }else{
             return NULL;
         }
     }
@@ -93,8 +139,9 @@ class TradeCommand extends ConsoleCommand {
                         $_filterResult1[$field]= "";
                     }
                 }
-                $tid = number_format($_filterResult1['tid'],0,'','');//获取tid
-                $_filterResultAll[] = array_merge($_filterResult1,$this->_getTrade($tid));
+                $tid = number_format($_filterResult1['tid'],0,'','');//获取tid不使用科学技术法
+                $oid = number_format($_filterResult1['oid'],0,'','');//获取oid不使用科学技术法
+                $_filterResultAll[] = array_merge($_filterResult1,$this->_getTrade($tid,$oid));
                 unset($_filterResult1);
             }
             return $_filterResultAll;
@@ -146,17 +193,17 @@ class TradeCommand extends ConsoleCommand {
         $objWriter = PHPExcel_IOFactory::createWriter($this->PHPWrite,'Excel5');  
         $objWriter->save($this->saveFileName);
     }
-    private function _connectTmall_Traderates($_sessionkey,$start_date,$end_date){
+    private function _connectTmall_Traderates($_sessionkey,$start_date,$end_date,$page_no){
         $_taobaoConnect=  new TaobaoConnectorTraderates();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
         $_taobaoConnect->__appsecret= Yii::app()->params['taobao_api']['appsecret'] ;
-        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['method6'] ;
-        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields6'] ;
-        $_items= $_taobaoConnect->connectTaobaoTraderates( $_sessionkey,$start_date,$end_date) ;
+        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['methods']['evaluate_method'] ;
+        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields']['evaluate_field'] ;
+        $_items= $_taobaoConnect->connectTaobaoTraderates( $_sessionkey,$start_date,$end_date,$page_no) ;
         if (array_key_exists('error_response',$_items)){
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
-            echo "Please input correct date format, like:2015-03-11 2015-04-10.\nstart date:2015-03-11\nend date:2015-04-10";
+            echo "Please input correct date format, like:2015-03-11 2015-04-10.\nStart date:2015-03-11\nEnd date:2015-04-10";
             exit();
         }
         if (array_key_exists('traderates_get_response',$_items)){
@@ -172,28 +219,53 @@ class TradeCommand extends ConsoleCommand {
             exit();
         }
     }
+    //获取created,payment
     private function _connectTmall_Trade($_sessionkey, $tid) {
-       $_taobaoConnect = new TaobaoConnectorTrade();
-       $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
-       $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
-       $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
-       $_taobaoConnect->__method = Yii::app()->params['taobao_api']['method7'];
-       $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields7'];
-       $_items = $_taobaoConnect->connectTaobaoTrade($_sessionkey, $tid);
-       if (array_key_exists('error_response', $_items)) {
-           Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
-           return NULL;
-       }
-       if (array_key_exists('trade_get_response', $_items)) {
-           if (!empty($_items)) {
-               return $_items;
-           } else {
-               Yii::log('No data tid', 'error', 'system.fail');
-               return NULL;
-           }
-       } else {
-           return NULL;
-       }
+        $_taobaoConnect = new TaobaoConnectorTrade();
+        $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
+        $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
+        $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
+        $_taobaoConnect->__method = Yii::app()->params['taobao_api']['methods']['trade_method'];
+        $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields']['trade_field'];
+        $_items = $_taobaoConnect->connectTaobaoTrade($_sessionkey, $tid);
+        if (array_key_exists('error_response', $_items)) {
+            Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
+            return NULL;
+        }
+        if (array_key_exists('trade_get_response', $_items)) {
+            if (!empty($_items)) {
+                return $_items;
+            } else {
+                Yii::log('No data tid', 'error', 'system.fail');
+                return NULL;
+            }
+        } else {
+            return NULL;
+        }
+    }
+    //获取orders.title,orders.outer_sku_id,orders.oid
+    private function _connectTmall_orders($_sessionkey, $tid) {
+        $_taobaoConnect = new TaobaoConnectorTrade();
+        $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
+        $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
+        $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
+        $_taobaoConnect->__method = Yii::app()->params['taobao_api']['methods']['trade_method'];
+        $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields']['trade_field_orders'];
+        $_items = $_taobaoConnect->connectTaobaoTrade($_sessionkey, $tid);
+        if (array_key_exists('error_response', $_items)) {
+            Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
+            return NULL;
+        }
+        if (array_key_exists('trade_get_response', $_items)) {
+            if (!empty($_items)) {
+                return $_items;
+            } else {
+                Yii::log('No data tid', 'error', 'system.fail');
+                return NULL;
+            }
+        } else {
+            return NULL;
+        }
     }
 }
 

@@ -190,6 +190,9 @@ class CommentSQLCommand extends ConsoleCommand {
         }
         return $tidTradeResult;
     }
+    public function _CheckString($str){
+            return str_replace("'","''",$str);
+        }
     //清除数据库中的数据
     public function _clearDatabase($tblName){
         $sql_clear = "TRUNCATE TABLE ".$tblName;
@@ -202,7 +205,7 @@ class CommentSQLCommand extends ConsoleCommand {
         $connection= Yii::app()->db;//建立数据库连接
         foreach ($_trades as $_tradesKey=>$_tradesValue){
 //            print_r($_tradesValue);
-            $INSERT = "insert into comment(tid,oid,nick,result,content) values (" . $_tradesValue['tid'] . "," . $_tradesValue['oid'] . ",'" . $_tradesValue['nick'] . "','" . $_tradesValue['result'] . "','" . $_tradesValue['content'] ."')";
+            $INSERT = "insert into comment(tid,oid,nick,result,content) values (" . $_tradesValue['tid'] . "," . $_tradesValue['oid'] . ",'" .$this->_CheckString($_tradesValue['nick']). "','" . $_tradesValue['result'] . "','" . $this->_CheckString($_tradesValue['content']) ."')";
             $command2 = $connection->createCommand($INSERT);
             $command2->execute();
         }
@@ -211,7 +214,7 @@ class CommentSQLCommand extends ConsoleCommand {
     public function _updateDatabase($TradeResult){
 //        print_r($TradeResult);
 //        $sql_update = " UPDATE  comment  SET title= '" . $TradeResult['title'] . "' , created = '". $TradeResult['created']. "' , payment = ". $TradeResult['payment'] . "  where oid = ".$TradeResult['oid']."   "; 
-        $sql_update = " UPDATE  comment  SET title= '" . $TradeResult['title'] . "' , created = '". $TradeResult['created']. "' , payment = ". $TradeResult['payment'] ." , outer_sku_id = ". $TradeResult['outer_sku_id'] . "  where oid = ".$TradeResult['oid']."   "; 
+        $sql_update = " UPDATE  comment  SET title= '" . $this->_CheckString($TradeResult['title']) . "' , created = '". $TradeResult['created']. "' , payment = ". $TradeResult['payment'] ." , outer_sku_id = ". $TradeResult['outer_sku_id'] . "  where oid = ".$TradeResult['oid']."   "; 
         $connection= Yii::app()->db;//建立数据库连接
         $command2 = $connection->createCommand($sql_update);
         $command2->execute();

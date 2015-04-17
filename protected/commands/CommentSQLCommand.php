@@ -16,7 +16,7 @@ class CommentSQLCommand extends ConsoleCommand {
     protected $saveFileName = null;
     public function init(){
         ini_set('memory_limit', '800M');
-        $this->_clearDatabase('comment');
+//        $this->_clearDatabase('comment');
         $this->PHPWrite = new PHPExcel();
         $this->saveFileName = dirname(__FILE__).'/../../Excel/trades.xls';
         $this->_evaluateFields = array("tid","oid","nick","result","content");//保证顺序
@@ -214,7 +214,7 @@ class CommentSQLCommand extends ConsoleCommand {
     public function _updateDatabase($TradeResult){
 //        print_r($TradeResult);
 //        $sql_update = " UPDATE  comment  SET title= '" . $TradeResult['title'] . "' , created = '". $TradeResult['created']. "' , payment = ". $TradeResult['payment'] . "  where oid = ".$TradeResult['oid']."   "; 
-        $sql_update = " UPDATE  comment  SET title= '" . $this->_CheckString($TradeResult['title']) . "' , created = '". $TradeResult['created']. "' , payment = ". $TradeResult['payment'] ." , outer_sku_id = ". $TradeResult['outer_sku_id'] . "  where oid = ".$TradeResult['oid']."   "; 
+        $sql_update = $sql_update = 'UPDATE comment SET title= "' . $this->_CheckString($TradeResult['title']) . '" , created = "'. $TradeResult['created']. '" , payment = "'. $TradeResult['payment'] .'" , outer_sku_id = "'. $TradeResult['outer_sku_id'] . '" where oid = "'.$TradeResult['oid'] . '"'; 
         $connection= Yii::app()->db;//建立数据库连接
         $command2 = $connection->createCommand($sql_update);
         $command2->execute();

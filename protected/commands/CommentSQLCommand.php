@@ -16,7 +16,7 @@ class CommentSQLCommand extends ConsoleCommand {
     protected $saveFileName = null;
     public function init(){
         ini_set('memory_limit', '800M');
-//        $this->_clearDatabase('comment');
+//        $this->_clearDatabase('comment');//清除数据库数据
         $this->PHPWrite = new PHPExcel();
         $this->saveFileName = dirname(__FILE__).'/../../Excel/trades.xls';
         $this->_evaluateFields = array("tid","oid","nick","result","content");//保证顺序
@@ -27,6 +27,8 @@ class CommentSQLCommand extends ConsoleCommand {
         fopen($this->saveFileName, "w+");
     }
     public function run($args){
+        ob_start();
+        $start = date('Y-m-d H:i:s');
        if(count($args)==2){
             $this->_getTraderatesAPIValue($args[0], $args[1]);
         }else if(count($args)==0){
@@ -41,11 +43,14 @@ class CommentSQLCommand extends ConsoleCommand {
             echo "Please input start date and end date!";
             exit();
         }
+        $insertSQL = date('Y-m-d H:i:s');
         $this->_transcation();
+        $updateSQL = date('Y-m-d H:i:s');
         $this->_generateExcel();
+        $generateExcel = date('Y-m-d H:i:s');
+        echo "\nstart time:\t$start\ninsert database:$insertSQL\nupdate database:$updateSQL\ngenerate excel: $generateExcel";
     }
     public function _generateExcel(){
-        ob_start();
         $this->_startSaveExcel();
         $count = $this->_getcount();
         $count = $count[0];

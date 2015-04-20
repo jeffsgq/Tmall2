@@ -212,8 +212,8 @@ class CategoryProductCommand extends ConsoleCommand {
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
         $_taobaoConnect->__appsecret= Yii::app()->params['taobao_api']['appsecret'] ;
-		$_taobaoConnect->__method= Yii::app()->params['taobao_api']['methods']['commodity_method'] ;
-       $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields']['commodity_sku_field'] ;
+        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['method3'] ;
+        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields3'] ;
         $_items= $_taobaoConnect->connectTaobaoSKU( $_sessionkey,$num_iid) ;
         if (array_key_exists('error_response',$_items)){
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');

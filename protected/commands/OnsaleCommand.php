@@ -12,7 +12,6 @@ class OnsaleCommand extends ConsoleCommand {
     protected $readFileName = null;
     protected $saveFileName = null;
     protected $_className = null;
-    
       public function init() {
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
         $this->saveFileName = dirname(__FILE__) . '/../../Excel/OnSale_num_iid.xls';
@@ -21,7 +20,6 @@ class OnsaleCommand extends ConsoleCommand {
         $this->beforeAction($this->_className, '');
         fopen($this->saveFileName, "w+");
     }
-    
       public function run($args) {
             $this->_print();
     }
@@ -52,7 +50,6 @@ class OnsaleCommand extends ConsoleCommand {
                 }
             $page_no = $page_no + 1;
             $_page = $_page - 1;
-           
                 } 
            }while(!$_page==0);
          
@@ -122,8 +119,8 @@ class OnsaleCommand extends ConsoleCommand {
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
         $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];
-        $_taobaoConnect->__method = Yii::app()->params['taobao_api']['method4'];
-        $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields4'];
+        $_taobaoConnect->__method = Yii::app()->params['taobao_api']['methods']['commodity_onsale_method'];
+        $_taobaoConnect->__fields = Yii::app()->params['taobao_api']['fields']['commodity_onsale_inventory_field'];
         $_items = $_taobaoConnect->connectTaobaoonsale($sessionkey, $page_no,$page_size);
         if (array_key_exists('error_response', $_items)) {
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');

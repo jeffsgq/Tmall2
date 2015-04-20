@@ -1,8 +1,7 @@
 <?php
 Yii::$enableIncludePath = false;
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
-Yii::import('application.components.TaobaoConnectorTraderates') ;
-Yii::import('application.components.connectTaobaoTrade') ;
+Yii::import('application.components.TaobaoConnector') ;
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
 include_once (dirname(__FILE__).'/../extensions/PHPExcel/PHPExcel/IOFactory.php');
 PHPExcel_CachedObjectStorageFactory::cache_in_memory_serialized;
@@ -48,7 +47,8 @@ class CommentSQLCommand extends ConsoleCommand {
         $updateSQL = date('Y-m-d H:i:s');
         $this->_generateExcel();
         $generateExcel = date('Y-m-d H:i:s');
-        echo "\nstart time:\t$start\ninsert database:$insertSQL\nupdate database:$updateSQL\ngenerate excel: $generateExcel";
+        
+        echo "\nstart time:\t$start\ninsert database:$insertSQL\nupdate database:$updateSQL\ngenerate excel: $generateExcel\n\ttrades.xls\n--------END--------";
     }
     public function _generateExcel(){
         $this->_startSaveExcel();
@@ -261,7 +261,7 @@ class CommentSQLCommand extends ConsoleCommand {
         $objWriter->save($this->saveFileName);
     }
     private function _connectTmall_Traderates($_sessionkey,$start_date,$end_date,$page_no){
-        $_taobaoConnect=  new TaobaoConnectorTraderates();
+        $_taobaoConnect=  new TaobaoConnector();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
         $_taobaoConnect->__appsecret= Yii::app()->params['taobao_api']['appsecret'] ;
@@ -288,7 +288,7 @@ class CommentSQLCommand extends ConsoleCommand {
     }
     //获取created,payment
     private function _connectTmall($_sessionkey, $tid) {
-        $_taobaoConnect = new TaobaoConnectorTrade();
+        $_taobaoConnect = new TaobaoConnector();
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
         $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];

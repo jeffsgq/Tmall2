@@ -1,7 +1,7 @@
 <?php
 
 Yii::$enableIncludePath = false;
-Yii::import('application.components.TaobaoConnectorInventory');
+Yii::import('application.components.TaobaoConnector');
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' );
 include_once (dirname(__FILE__) . '/../extensions/PHPExcel/PHPExcel/IOFactory.php');
@@ -48,7 +48,7 @@ class InventoryCommand extends ConsoleCommand {
 
     private function _connectTmall($_sessionkey, $page_no, $page_size, $banner) {
 
-        $_taobaoConnect = new TaobaoConnectorInventory();
+        $_taobaoConnect = new TaobaoConnector();
         $_taobaoConnect->__url = Yii::app()->params['taobao_api']['url'];
         $_taobaoConnect->__appkey = Yii::app()->params['taobao_api']['appkey'];
         $_taobaoConnect->__appsecret = Yii::app()->params['taobao_api']['appsecret'];

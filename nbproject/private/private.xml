@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/yii1/Tmall2/</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/commands/InventoryCommand.php</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/commands/CategoryProductCommand.php</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/commands/CommentSQLCommand.php</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/commands/CategoryItemCommand.php</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/components/TaobaoConnector.php</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/config/console.php</file>
+            <file>file:/C:/wamp/www/yii1/Tmall2/protected/commands/OnsaleCommand.php</file>
         </group>
     </open-files>
 </project-private>

@@ -1,5 +1,5 @@
 <?php
-Yii::import('application.components.TaobaoConnectorSQL');
+Yii::import('application.components.TaobaoConnector');
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' );
 class CategoryTreeCommand extends ConsoleCommand {
     protected $_className= null ;
@@ -72,12 +72,12 @@ class CategoryTreeCommand extends ConsoleCommand {
         return $_items;
     }
     private function _connectTmall($_sessionkey,$_parentid){
-        $_taobaoConnect= new TaobaoConnectorSQL();
+        $_taobaoConnect= new TaobaoConnector();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
         $_taobaoConnect->__appsecret= Yii::app()->params['taobao_api']['appsecret'] ;
-        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['method1'] ;
-        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields1'] ;
+        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['methods']['item_method'] ;
+        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields']['item_field'] ;
         $_items= $_taobaoConnect->connectTaobaoSQL( $_sessionkey,$_parentid) ;
         //判断$_items数组中是否存在'error_response'，存在则为true，否则为false
         if (array_key_exists('error_response',$_items)){

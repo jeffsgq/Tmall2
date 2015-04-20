@@ -1,6 +1,6 @@
 <?php
 Yii::$enableIncludePath = false;
-Yii::import('application.components.TaobaoConnectorSKU') ;
+Yii::import('application.components.TaobaoConnector') ;
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
 include_once (dirname(__FILE__).'/../extensions/PHPExcel/PHPExcel/IOFactory.php');
@@ -169,7 +169,7 @@ class CategoryProductCommand extends ConsoleCommand {
 //            echo $rowIndex;
         }
         $this->_endSaveExcel();//Excel的尾部
-        echo '-------------END-------------';
+        echo "\t-sku.xls\n-------------END-------------";
     }
     
    
@@ -208,12 +208,12 @@ class CategoryProductCommand extends ConsoleCommand {
     }
    
     private function _connectTmall($_sessionkey,$num_iid){
-        $_taobaoConnect= new TaobaoConnectorSKU();
+        $_taobaoConnect= new TaobaoConnector();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
         $_taobaoConnect->__appsecret= Yii::app()->params['taobao_api']['appsecret'] ;
-		$_taobaoConnect->__method= Yii::app()->params['taobao_api']['methods']['commodity_method'] ;
-       $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields']['commodity_sku_field'] ;
+        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['methods']['commodity_method'] ;
+        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields']['commodity_sku_field'] ;
         $_items= $_taobaoConnect->connectTaobaoSKU( $_sessionkey,$num_iid) ;
         if (array_key_exists('error_response',$_items)){
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');

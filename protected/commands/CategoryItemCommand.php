@@ -1,9 +1,10 @@
 <?php
 Yii::$enableIncludePath = false; 
-Yii::import('application.components.TaobaoConnectorItem');
+Yii::import('application.components.TaobaoConnector');
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
 include_once (dirname(__FILE__).'/../extensions/PHPExcel/PHPExcel/IOFactory.php');
+PHPExcel_CachedObjectStorageFactory::cache_in_memory_serialized;
 class CategoryItemCommand extends ConsoleCommand{
     protected $PHPExcel = null;
     protected $PHPReader = null;
@@ -17,22 +18,46 @@ class CategoryItemCommand extends ConsoleCommand{
     protected $category = null;
     public function init(){
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
-        $this->readFileName = dirname(__FILE__).'/../../Excel/num_iid.xls';
-        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
-        $this->saveFileName = dirname(__FILE__).'/../../Excel/category.xls';
         $this->PHPWrite = new PHPExcel();
         $this->_className= get_class() ;
         $this->beforeAction( $this->_className, '') ;
         //创建category.xls
-        fopen($this->saveFileName, "w+");
         //初始化Excel标题
         $this->categoryTitle = array("num_iid","title","input_str","num","approve_status","cid_1","Category_1","cid_2","Category_2","cid_3","Category_3","cid_4","Category_4");
         $this->itemTitle = array("num_iid","title","input_str","num","approve_status","cid1");
         $this->category = array();
     }
     //执行方法
-    public function run($args){
-        $this->_Print(); 
+    public function run($choic){
+        $this->_prompt($choic);
+        switch ($choic[0]) {
+            case 'inventory':
+                $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/Inventory_category.xls';
+                break;
+            case 'onsale':
+                $this->readFileName = dirname(__FILE__).'/../../Excel/Onsale_num_iid.xls';
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/Onsale_category.xls';
+                break;
+            default:
+                echo "**************************************************\n"
+                    . "Please input parameter : onsale or inventory\n"
+                    . "**************************************************";
+                exit();
+        }
+        $this->PHPReader = $this->PHPExcel->load($this->readFileName);
+        fopen($this->saveFileName, "w+");
+        $this->_generateExcel();
+    }
+    //parameter prompt
+    public function _prompt($args){
+        if(empty($args)){
+            echo "**************************************************\n"
+            . "Please input parement : onsale or inventory\n"
+            . "Like that:categoryitem onsale\n"
+            . "**************************************************";
+            exit();
+        }
     }
      //调整Excel表中属性的顺序
     public function _order(){
@@ -44,7 +69,7 @@ class CategoryItemCommand extends ConsoleCommand{
                     ->setCellValue(chr($i+2).'1', '叶子类目Category');
         //循环转换
         for($j=2;$j<=$rowN;$j++){
-            $flag = $currentSheet->getCell("E".$j)->getValue();
+            $flag = $currentSheet->getCell("G".$j)->getValue();
             if(!empty($flag)){
                 $index = 70;
                 while(!empty($flag)){
@@ -57,7 +82,7 @@ class CategoryItemCommand extends ConsoleCommand{
         }
     }
     //循环输出并保存在Excel中
-    public function _Print(){
+    public function _generateExcel(){
         ob_start();
         $this->_startSaveExcel();
         $currentSheet = $this->PHPReader->getSheet(0);
@@ -69,7 +94,7 @@ class CategoryItemCommand extends ConsoleCommand{
         }
         $this->_order();
         $this->_endSaveExcel();
-        echo 'END---category.xls';
+        echo '--------END--------';
     }
     //获取API属性
     public function _getAPIValue($num_iid){
@@ -83,6 +108,7 @@ class CategoryItemCommand extends ConsoleCommand{
         }else{
             return $_itemsTmall;
         }
+//        unset($_itemsTmallAll);
     }
     //出入到Excel
     public function _insertExcel($num_iid,$i){
@@ -113,7 +139,6 @@ class CategoryItemCommand extends ConsoleCommand{
             }
             //写入Excel
             $this->_orderALine($array2,$i);
-            //释放内存
             unset($array);
             unset($array2);
         }else{
@@ -164,15 +189,16 @@ class CategoryItemCommand extends ConsoleCommand{
                $index_j = $index_j + 2;
            }
         }
+        unset($array);
     }
     //连接淘宝API
      private function _connectTmall($_sessionkey,$num_iid){
-        $_taobaoConnect= new TaobaoConnectorItem();
+        $_taobaoConnect= new TaobaoConnector();
         $_taobaoConnect->__url=Yii::app()->params['taobao_api']['url'] ;
         $_taobaoConnect->__appkey= Yii::app()->params['taobao_api']['appkey'] ;
         $_taobaoConnect->__appsecret= Yii::app()->params['taobao_api']['appsecret'] ;
-        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['method2'] ;
-        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields2'] ;
+        $_taobaoConnect->__method= Yii::app()->params['taobao_api']['methods']['commodity_method'] ;
+        $_taobaoConnect->__fields= Yii::app()->params['taobao_api']['fields']['commodity_item_field'] ;
         $_items= $_taobaoConnect->connectTaobaoItem( $_sessionkey,$num_iid) ;
         if (array_key_exists('error_response',$_items)){
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');

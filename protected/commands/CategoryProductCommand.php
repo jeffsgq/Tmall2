@@ -1,5 +1,7 @@
 <?php
 Yii::$enableIncludePath = false;
+//发送邮件
+Yii::import('application.components.Taobaomail') ;
 Yii::import('application.components.TaobaoConnector') ;
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
@@ -18,7 +20,8 @@ class CategoryProductCommand extends ConsoleCommand {
     protected $titleArray = null;
     protected $_parentFields= array();
     protected $_skuFields= array();
-
+    protected $_fileName = null;
+    protected $taobaomail = null;
     public function init(){
         ini_set('memory_limit', '800M');
         $this->PHPExcel = new PHPExcel_Reader_Excel5();
@@ -29,29 +32,39 @@ class CategoryProductCommand extends ConsoleCommand {
         $this->_parentFields = array("num_iid","banner","title","outer_id","approve_status","num","skus");//skus must be the last one
         $this->_skuFields = array("sku_id","outer_id","quantity","with_hold_quantity","price","properties_name");
         $this->titleArray = array("num_iid","banner","title","item_outer_id","approve_status","num","sku_id","sku_outer_id","quantity","with_hold_quantity","price","properties");
+        //发送邮件
+        $this->taobaomail = new Taobaomail();
     }
     public function run($choic){
+        ob_start();
 //         $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],'2100636162534');
 //         exit();
         $this->_prompt($choic);
         switch ($choic[0]) {
             case 'inventory':
+                $this->_fileName = "Inventory_sku.xls";
                 $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
-                $this->saveFileName = dirname(__FILE__).'/../../Excel/Inventory_sku.xls';
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->_fileName;
                 break;
             case 'onsale':
+                $this->_fileName = "Onsale_sku.xls";
                 $this->readFileName = dirname(__FILE__).'/../../Excel/Onsale_num_iid.xls';
-                $this->saveFileName = dirname(__FILE__).'/../../Excel/Onsale_sku.xls';
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->_fileName;
                 break;
             default:
                 echo "**************************************************\n"
-                    . "Please input parameter : onsale or inventory\n"
+                    . "Please input parameter : onsale or inventory\nIf you want to send email, The parameter : onsale abc@decathlon.com or inventory abc@decathlon.com"
                     . "**************************************************";
                 exit();
         }
         $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         fopen($this->saveFileName, "w+");
         $this->_generateExcel();
+        if(!empty($choic[1])){
+            $this->taobaomail->sendTaobaoMai($this->_fileName, $choic[1]);
+        }else{
+            echo "\n**************No email**************";
+        }
     }
     //parameter prompt
     public function _prompt($args){
@@ -59,6 +72,8 @@ class CategoryProductCommand extends ConsoleCommand {
             echo "**************************************************\n"
             . "Please input parement : onsale or inventory\n"
             . "Like that:categoryproduct onsale\n"
+            . "If you want to send email\nThe parameter : onsale abc@decathlon.com OR inventory abc@decathlon.com\n"
+            . "Like that:categoryproduct onsale abc@decathlon.com\n"        
             . "**************************************************";
             exit();
         }

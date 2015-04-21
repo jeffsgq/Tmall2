@@ -1,5 +1,7 @@
 <?php
 Yii::$enableIncludePath = false;
+//发送邮件
+Yii::import('application.components.Taobaomail') ;
 Yii::import('application.extensions.PHPExcel.PHPExcel', 1);
 Yii::import('application.components.TaobaoConnector') ;
 require_once( dirname(__FILE__) . '/../components/ConsoleCommand.php' ) ;
@@ -13,22 +15,29 @@ class CommentSQLCommand extends ConsoleCommand {
     protected $_tradeFieldsOrders = array();
     protected $PHPWrite = null;
     protected $saveFileName = null;
+    protected $fileName = null;
+    protected $taobaomail = null;
     public function init(){
         ini_set('memory_limit', '800M');
 //        $this->_clearDatabase('comment');//清除数据库数据
         $this->PHPWrite = new PHPExcel();
-        $this->saveFileName = dirname(__FILE__).'/../../Excel/trades.xls';
+        $this->fileName = 'trades.xls';
+        $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->fileName ;
         $this->_evaluateFields = array("tid","oid","nick","result","content");//保证顺序
         $this->_tradeField = array("created", "payment");
         $this->_tradeFields = array("created", "payment","orders");
         $this->_tradeFieldsOrders = array("outer_sku_id","title","oid");
         $this->titleArray = array("tid","oid","nick","result","content","outer_sku_id","title","created","payment");
         fopen($this->saveFileName, "w+");
+        //发送邮件
+        $this->taobaomail = new Taobaomail();
     }
     public function run($args){
         ob_start();
         $start = date('Y-m-d H:i:s');
        if(count($args)==2){
+            $this->_getTraderatesAPIValue($args[0], $args[1]);
+        }else if(count($args)==3){
             $this->_getTraderatesAPIValue($args[0], $args[1]);
         }else if(count($args)==0){
             $date=date('Y-m-d');  //当前日期
@@ -47,8 +56,12 @@ class CommentSQLCommand extends ConsoleCommand {
         $updateSQL = date('Y-m-d H:i:s');
         $this->_generateExcel();
         $generateExcel = date('Y-m-d H:i:s');
-        
         echo "\nstart time:\t$start\ninsert database:$insertSQL\nupdate database:$updateSQL\ngenerate excel: $generateExcel\n\ttrades.xls\n--------END--------";
+        if(!empty($args[2])){
+            $this->taobaomail->sendTaobaoMai($this->fileName, $args[2]);
+        }else{
+            echo "\n**************No email**************";
+        }
     }
     public function _generateExcel(){
         $this->_startSaveExcel();
@@ -270,7 +283,7 @@ class CommentSQLCommand extends ConsoleCommand {
         $_items= $_taobaoConnect->connectTaobaoTraderates( $_sessionkey,$start_date,$end_date,$page_no) ;
         if (array_key_exists('error_response',$_items)){
             Yii::log('Caught exception: ' . serialize($_items), 'error', 'system.fail');
-            echo "Please input correct date format, like:2015-03-11 2015-04-10.\nStart date:2015-03-11\nEnd date:2015-04-10";
+            echo "Please input correct date format, like:2015-03-11 2015-04-10 abc@decathlon.com.\nStart date:2015-03-11\nEnd date:2015-04-10\nAnd email address, like:abc@decathlon.com";
             exit();
         }
         if (array_key_exists('traderates_get_response',$_items)){

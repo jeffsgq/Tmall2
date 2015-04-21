@@ -4446,3 +4446,1580 @@ Stack trace:
 2015/04/20 10:39:27 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
 2015/04/20 10:39:27 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
 2015/04/20 10:39:27 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 04:13:24 [error] [system.fail] Caught exception: a:1:{s:14:"error_response";a:4:{s:4:"code";i:27;s:3:"msg";s:31:"Invalid session:session-expired";s:8:"sub_code";s:15:"session-expired";s:10:"request_id";s:12:"9wy2x1cmjz8x";}}
+2015/04/21 04:13:24 [error] [system.fail] Caught exception: a:1:{s:14:"error_response";a:4:{s:4:"code";i:27;s:3:"msg";s:31:"Invalid session:session-expired";s:8:"sub_code";s:15:"session-expired";s:10:"request_id";s:12:"9wy95j37ysj9";}}
+2015/04/21 04:13:24 [error] [php] Invalid argument supplied for foreach() (C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php:42)
+Stack trace:
+#0 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#1 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#2 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:14:49 [error] [php] include_once(C:\wamp\www\yii1\Tmall2\protected\components/../extensions/PHPMailer/class.phpmailer): failed to open stream: No such file or directory (C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php:3)
+Stack trace:
+#0 unknown(0): autoload()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(28): spl_autoload_call()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:16:33 [error] [php] include_once(C:\wamp\www\yii1\Tmall2\protected\components/../extensions/PHPMailer/class.phpmailer): failed to open stream: No such file or directory (C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php:3)
+Stack trace:
+#0 unknown(0): autoload()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(28): spl_autoload_call()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:17:11 [error] [php] include_once(C:\wamp\www\yii1\Tmall2\protected\components/../extensions/PHPMailer/class.phpmailer): failed to open stream: No such file or directory (C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php:3)
+Stack trace:
+#0 unknown(0): autoload()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(28): spl_autoload_call()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:18:22 [error] [php] include_once(C:\wamp\www\yii1\Tmall2\protected\commands/../extensions/PHPMailer/class.phpmailer): failed to open stream: No such file or directory (C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php:5)
+Stack trace:
+#0 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(67): CConsoleCommandRunner->createCommand()
+#1 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#2 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#3 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:18:31 [error] [php] include_once(C:\wamp\www\yii1\Tmall2\protected\commands/../extensions/PHPMailer/class.phpmailer): failed to open stream: No such file or directory (C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php:5)
+Stack trace:
+#0 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(67): CConsoleCommandRunner->createCommand()
+#1 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#2 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#3 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:19:27 [error] [php] include_once(C:\wamp\www\yii1\Tmall2\protected\components/../extensions/PHPMailer/class.phpmailer): failed to open stream: No such file or directory (C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php:3)
+Stack trace:
+#0 unknown(0): autoload()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(28): spl_autoload_call()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 04:20:25 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:20:58 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:22:10 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:23:09 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:23:24 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:29:22 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:29:26 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:29:44 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:34:33 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:37:00 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:37:36 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:38:04 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:39:16 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:39:20 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:39:58 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:40:20 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:41:58 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:43:15 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:49:23 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:06 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:10 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:11 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:12 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:13 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:13 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:52:19 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:53:58 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:54:09 [error] [system.fail] Caught exception: Send mail failed
+2015/04/21 04:57:56 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'Message body empty' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:795
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(762): PHPMailer->PreSend()
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(34): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 04:58:25 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'The following From address failed: jeffsgq1217@gmail.com : Called Mail() without being connected' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:977
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(845): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(763): PHPMailer->PostSend()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(34): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#8 {main}
+---
+2015/04/21 04:59:10 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'The following From address failed: jeffsgq1217@gmail.com : Called Mail() without being connected' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:977
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(845): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(763): PHPMailer->PostSend()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(34): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#8 {main}
+---
+2015/04/21 05:01:39 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'SMTP Error: Could not authenticate.' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1087
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(971): PHPMailer->SmtpConnect()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(845): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#2 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(763): PHPMailer->PostSend()
+#3 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(34): PHPMailer->Send()
+#4 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#5 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#6 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#7 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#8 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#9 {main}
+---
+2015/04/21 05:03:38 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'SMTP Error: Could not authenticate.' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1087
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(971): PHPMailer->SmtpConnect()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(845): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#2 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(763): PHPMailer->PostSend()
+#3 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(34): PHPMailer->Send()
+#4 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#5 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#6 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#7 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#8 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#9 {main}
+---
+2015/04/21 05:21:35 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'SMTP Error: Could not authenticate.' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:814
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(705): PHPMailer->SmtpConnect()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(34): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#8 {main}
+---
+2015/04/21 05:24:03 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'SMTP Error: Could not authenticate.' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:814
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(705): PHPMailer->SmtpConnect()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(31): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#8 {main}
+---
+2015/04/21 05:25:54 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'The following From address failed: jeffsgq1217@gmail.com' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:710
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(31): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 05:30:39 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'The following From address failed: jeffsgq1217@gmail.com' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:710
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(30): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 05:35:10 [error] [exception.phpmailerException] exception 'phpmailerException' with message 'The following From address failed: jeffsgq1217@gmail.com' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:710
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend('Date: Tue, 21 A...', '<h1>The Tmall A...')
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(85): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai('C:/wamp/www/yii...', 'zhiqiang.ge@dec...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 05:48:28 [error] [php] Undefined variable: errstr (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.smtp.php:131)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend()
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(29): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 05:48:43 [error] [php] Undefined variable: errstr (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.smtp.php:131)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend()
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(29): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 05:49:46 [error] [php] stream_socket_client(): unable to connect to ssl://smtp.gmail.com (Failed to parse address "smtp.gmail.com") (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.smtp.php:132)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(705): PHPMailer->SmtpConnect()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(29): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 05:49:48 [error] [php] stream_socket_client(): unable to connect to ssl://smtp.gmail.com (Failed to parse address "smtp.gmail.com") (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.smtp.php:132)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(705): PHPMailer->SmtpConnect()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(576): PHPMailer->SmtpSend()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(29): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:12:45 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1471)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:18:30 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1471)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(41): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:19:37 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1476)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:20:26 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1476)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:23:28 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1475)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:23:56 [error] [php] Undefined variable: magic_quotes (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1475)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:25:10 [error] [php] Undefined variable: magic_quotes (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1475)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:25:57 [error] [php] Undefined variable: magic_quotes (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1475)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#1 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:26:11 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1471)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:26:24 [error] [php] Function set_magic_quotes_runtime() is deprecated (C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php:1475)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(1228): PHPMailer->AttachAll()
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPMailer\class.phpmailer.php(559): PHPMailer->CreateBody()
+#2 C:\wamp\www\yii1\Tmall2\protected\components\Taobaomail.php(40): PHPMailer->Send()
+#3 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(29): Taobaomail->sendTaobaoMai()
+#4 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#5 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#7 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 08:56:43 [error] [php] Undefined offset: 2 (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:66)
+Stack trace:
+#0 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#1 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:00:02 [error] [system.fail] traderates_get_response not exists data from 2015-04-13 to 2015-04-19
+2015/04/21 09:00:24 [error] [system.fail] Caught exception: a:1:{s:14:"error_response";a:3:{s:4:"code";i:41;s:3:"msg";s:28:"Invalid arguments:start_date";s:10:"request_id";s:12:"9wy95r6uc264";}}
+2015/04/21 09:07:57 [error] [system.fail] Caught exception: a:1:{s:14:"error_response";a:3:{s:4:"code";i:41;s:3:"msg";s:28:"Invalid arguments:start_date";s:10:"request_id";s:12:"9wy95reii9h3";}}
+2015/04/21 09:25:43 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(56): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:26:53 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(57): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:27:57 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(57): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:29:09 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(59): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:30:17 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(59): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:31:20 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(59): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:32:33 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(59): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:32:38 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(59): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:33:19 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:33:36 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:284)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(41): CommentSQLCommand->_getTraderatesAPIValue()
+#1 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#2 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#4 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:33:48 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:311)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(173): CommentSQLCommand->_getTradeAPIValue()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(55): CommentSQLCommand->_transcation()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:34:06 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:284)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(41): CommentSQLCommand->_getTraderatesAPIValue()
+#1 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#2 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#4 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:34:14 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:311)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(173): CommentSQLCommand->_getTradeAPIValue()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(55): CommentSQLCommand->_transcation()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:35:12 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:311)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(173): CommentSQLCommand->_getTradeAPIValue()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(55): CommentSQLCommand->_transcation()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:35:17 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:284)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(41): CommentSQLCommand->_getTraderatesAPIValue()
+#1 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#2 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#4 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:35:36 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:311)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(173): CommentSQLCommand->_getTradeAPIValue()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(55): CommentSQLCommand->_transcation()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:37:50 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:284)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(41): CommentSQLCommand->_getTraderatesAPIValue()
+#1 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#2 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#4 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:37:58 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:284)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(41): CommentSQLCommand->_getTraderatesAPIValue()
+#1 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#2 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#4 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:38:04 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php:284)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\CommentSQLCommand.php(39): CommentSQLCommand->_getTraderatesAPIValue()
+#1 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CommentSQLCommand->run()
+#2 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#4 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:38:52 [error] [php] array_key_exists() expects parameter 2 to be array, null given (C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php:130)
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(37): OnsaleCommand->_getTotalResults()
+#1 C:\wamp\www\yii1\Tmall2\protected\commands\OnsaleCommand.php(26): OnsaleCommand->_print()
+#2 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): OnsaleCommand->run()
+#3 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#5 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 09:44:35 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 09:59:27 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 10:12:12 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 10:12:16 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 10:20:36 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 10:31:40 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 10:32:34 [error] [exception.PHPExcel_Reader_Exception] exception 'PHPExcel_Reader_Exception' with message 'The filename C:\wamp\www\yii1\Tmall2\protected\commands/../../Excel/Onsale_num_iid.xls is not recognised as an OLE file' in C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Shared\OLERead.php:89
+Stack trace:
+#0 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(1164): PHPExcel_Shared_OLERead->read('C:\\wamp\\www\\yii...')
+#1 C:\wamp\www\yii1\Tmall2\protected\extensions\PHPExcel\PHPExcel\Reader\Excel5.php(612): PHPExcel_Reader_Excel5->_loadOLE('C:\\wamp\\www\\yii...')
+#2 C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php(60): PHPExcel_Reader_Excel5->load('C:\\wamp\\www\\yii...')
+#3 C:\wamp\www\yii1\framework\console\CConsoleCommandRunner.php(71): CategoryProductCommand->run(Array)
+#4 C:\wamp\www\yii1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#6 C:\wamp\www\yii1\Tmall2\crons.php(15): CApplication->run()
+#7 {main}
+---
+2015/04/21 10:33:34 [error] [system.fail] Caught exception: num_iid:2100635432240skus not exists
+2015/04/21 10:33:34 [error] [system.fail] Caught exception: num_iid:2100636254931skus not exists
+2015/04/21 10:33:34 [error] [system.fail] Caught exception: num_iid:2100636251019skus not exists
+2015/04/21 10:33:34 [error] [system.fail] Caught exception: num_iid:2100636251018skus not exists
+2015/04/21 10:33:34 [error] [system.fail] Caught exception: num_iid:2100635432239skus not exists
+2015/04/21 10:33:34 [error] [system.fail] Caught exception: num_iid:2100635432238skus not exists
+2015/04/21 10:33:35 [error] [system.fail] Caught exception: num_iid:2100635432237skus not exists
+2015/04/21 10:33:35 [error] [system.fail] Caught exception: num_iid:2100635432236skus not exists
+2015/04/21 10:33:35 [error] [system.fail] Caught exception: num_iid:2100635432235skus not exists
+2015/04/21 10:33:35 [error] [system.fail] Caught exception: num_iid:2100636583925skus not exists
+2015/04/21 10:33:35 [error] [system.fail] Caught exception: num_iid:2100638678481skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637838783skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637838782skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637838781skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637824230skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637822229skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637824229skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637824228skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637822230skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637824226skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637822226skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637822225skus not exists
+2015/04/21 10:33:36 [error] [system.fail] Caught exception: num_iid:2100637822224skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100637824225skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100637824224skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100637824223skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100636583843skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100636156697skus not exists
+2015/04/21 10:33:37 [error] [system.fail] Caught exception: num_iid:2100635731347skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627608444skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627608443skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236538skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236537skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236536skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236535skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236534skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236533skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100627236532skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100638192166skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100637320469skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100625305520skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100625305519skus not exists
+2015/04/21 10:33:38 [error] [system.fail] Caught exception: num_iid:2100625305518skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100625305517skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100625305516skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100625305515skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100625678704skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100625305514skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100636157011skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614385skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614345skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614384skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614383skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614382skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614381skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614344skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614343skus not exists
+2015/04/21 10:33:39 [error] [system.fail] Caught exception: num_iid:2100642614342skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100642614341skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100636257999skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100637084817skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100636257838skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100637084816skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100636257836skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100636257835skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100637084815skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100636257834skus not exists
+2015/04/21 10:33:40 [error] [system.fail] Caught exception: num_iid:2100636257833skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100643165728skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100641877916skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100641877915skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100641877914skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100641877913skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100641877912skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100643165727skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100643165726skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100642718220skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100641877911skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100635450500skus not exists
+2015/04/21 10:33:41 [error] [system.fail] Caught exception: num_iid:2100635450499skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635450498skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635466373skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635466372skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635466371skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635450497skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635450496skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100635450495skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100648074333skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100648074332skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100647646942skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100647646941skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100648074331skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100648074300skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100647200920skus not exists
+2015/04/21 10:33:42 [error] [system.fail] Caught exception: num_iid:2100647200919skus not exists
+2015/04/21 10:33:43 [error] [system.fail] Caught exception: num_iid:2100647200918skus not exists
+2015/04/21 10:33:43 [error] [system.fail] Caught exception: num_iid:2100647200917skus not exists
+2015/04/21 10:33:43 [error] [system.fail] Caught exception: num_iid:2100636165982skus not exists
+2015/04/21 10:33:43 [error] [system.fail] Caught exception: num_iid:2100636165981skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637024524skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637024523skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637020770skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637020769skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637024522skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637024521skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100637020768skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100635764960skus not exists
+2015/04/21 10:33:44 [error] [system.fail] Caught exception: num_iid:2100620107981skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620102588skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620102587skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620102585skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620840170skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620840169skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620102584skus not exists
+2015/04/21 10:33:45 [error] [system.fail] Caught exception: num_iid:2100620102583skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635854581skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635454791skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635454480skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635854350skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635454479skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635454478skus not exists
+2015/04/21 10:33:46 [error] [system.fail] Caught exception: num_iid:2100635454477skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635454476skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854349skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854348skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854345skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635454474skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854344skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854343skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635454473skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854342skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635454472skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635454471skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635854341skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635452600skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635452599skus not exists
+2015/04/21 10:33:47 [error] [system.fail] Caught exception: num_iid:2100635452598skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100636272259skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100636272258skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635452597skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635452596skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635452595skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100636272257skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635452594skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635452593skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635835468skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100636262091skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100636254940skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100635835467skus not exists
+2015/04/21 10:33:48 [error] [system.fail] Caught exception: num_iid:2100636254939skus not exists
+2015/04/21 10:33:49 [error] [system.fail] Caught exception: num_iid:2100635835465skus not exists
+2015/04/21 10:33:49 [error] [system.fail] Caught exception: num_iid:2100636254938skus not exists
+2015/04/21 10:33:49 [error] [system.fail] Caught exception: num_iid:2100636254937skus not exists
+2015/04/21 10:33:49 [error] [system.fail] Caught exception: num_iid:2100636254936skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100635432240skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100636254931skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100636251019skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100636251018skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100635432239skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100635432238skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100635432237skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100635432236skus not exists
+2015/04/21 10:34:53 [error] [system.fail] Caught exception: num_iid:2100635432235skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100636583925skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100638678481skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637838783skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637838782skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637838781skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824230skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637822229skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824229skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824228skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637822230skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824226skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637822226skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637822225skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637822224skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824225skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824224skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824223skus not exists
+2015/04/21 10:34:54 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100636583843skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100636156697skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100635731347skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627608444skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627608443skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236538skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236537skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236536skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236535skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236534skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236533skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100627236532skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100638192166skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100637320469skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100625305520skus not exists
+2015/04/21 10:34:55 [error] [system.fail] Caught exception: num_iid:2100625305519skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100625305518skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100625305517skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100625305516skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100625305515skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100625678704skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100625305514skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100636157011skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614385skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614345skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614384skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614383skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614382skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614381skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614344skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614343skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614342skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100642614341skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100636257999skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100637084817skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100636257838skus not exists
+2015/04/21 10:34:56 [error] [system.fail] Caught exception: num_iid:2100637084816skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100636257836skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100636257835skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100637084815skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100636257834skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100636257833skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100643165728skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100641877916skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100641877915skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100641877914skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100641877913skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100641877912skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100643165727skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100643165726skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100642718220skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100641877911skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100635450500skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100635450499skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100635450498skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100635466373skus not exists
+2015/04/21 10:34:57 [error] [system.fail] Caught exception: num_iid:2100635466372skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100635466371skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100635450497skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100635450496skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100635450495skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100648074333skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100648074332skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100647646942skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100647646941skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100648074331skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100648074300skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100647200920skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100647200919skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100647200918skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100647200917skus not exists
+2015/04/21 10:34:58 [error] [system.fail] Caught exception: num_iid:2100636165982skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100636165981skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637024524skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637024523skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637020770skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637020769skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637024522skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637024521skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100637020768skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100635764960skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620107981skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620102588skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620102587skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620102585skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620840170skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620840169skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620102584skus not exists
+2015/04/21 10:34:59 [error] [system.fail] Caught exception: num_iid:2100620102583skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635854581skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454791skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454480skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635854350skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454479skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454478skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454477skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454476skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635854349skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635854348skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635854345skus not exists
+2015/04/21 10:35:00 [error] [system.fail] Caught exception: num_iid:2100635454474skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635854344skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635854343skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635454473skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635854342skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635454472skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635454471skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635854341skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452600skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452599skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452598skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100636272259skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100636272258skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452597skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452596skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452595skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100636272257skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452594skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635452593skus not exists
+2015/04/21 10:35:01 [error] [system.fail] Caught exception: num_iid:2100635835468skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100636262091skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100636254940skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100635835467skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100636254939skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100635835465skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100636254938skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100636254937skus not exists
+2015/04/21 10:35:02 [error] [system.fail] Caught exception: num_iid:2100636254936skus not exists
+2015/04/21 10:35:17 [error] [system.fail] Caught exception: num_iid:2100635432240skus not exists
+2015/04/21 10:35:17 [error] [system.fail] Caught exception: num_iid:2100636254931skus not exists
+2015/04/21 10:35:17 [error] [system.fail] Caught exception: num_iid:2100636251019skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100636251018skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100635432239skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100635432238skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100635432237skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100635432236skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100635432235skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100636583925skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100638678481skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637838783skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637838782skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637838781skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637824230skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637822229skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637824229skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637824228skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637822230skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637824226skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637822226skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637822225skus not exists
+2015/04/21 10:35:18 [error] [system.fail] Caught exception: num_iid:2100637822224skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100637824225skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100637824224skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100637824223skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100636583843skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100636156697skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100635731347skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627608444skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627608443skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236538skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236537skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236536skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236535skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236534skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236533skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100627236532skus not exists
+2015/04/21 10:35:19 [error] [system.fail] Caught exception: num_iid:2100638192166skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100637320469skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305520skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305519skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305518skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305517skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305516skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305515skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625678704skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100625305514skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100636157011skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614385skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614345skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614384skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614383skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614382skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614381skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614344skus not exists
+2015/04/21 10:35:20 [error] [system.fail] Caught exception: num_iid:2100642614343skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100642614342skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100642614341skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100636257999skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100637084817skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100636257838skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100637084816skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100636257836skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100636257835skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100637084815skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100636257834skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100636257833skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100643165728skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100641877916skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100641877915skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100641877914skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100641877913skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100641877912skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100643165727skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100643165726skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100642718220skus not exists
+2015/04/21 10:35:21 [error] [system.fail] Caught exception: num_iid:2100641877911skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635450500skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635450499skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635450498skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635466373skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635466372skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635466371skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635450497skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635450496skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100635450495skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100648074333skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100648074332skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100647646942skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100647646941skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100648074331skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100648074300skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100647200920skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100647200919skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100647200918skus not exists
+2015/04/21 10:35:22 [error] [system.fail] Caught exception: num_iid:2100647200917skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100636165982skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100636165981skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637024524skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637024523skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637020770skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637020769skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637024522skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637024521skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100637020768skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100635764960skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620107981skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620102588skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620102587skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620102585skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620840170skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620840169skus not exists
+2015/04/21 10:35:23 [error] [system.fail] Caught exception: num_iid:2100620102584skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100620102583skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635854581skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635454791skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635454480skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635854350skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635454479skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635454478skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635454477skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635454476skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635854349skus not exists
+2015/04/21 10:35:24 [error] [system.fail] Caught exception: num_iid:2100635854348skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635854345skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635454474skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635854344skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635854343skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635454473skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635854342skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635454472skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635454471skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635854341skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452600skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452599skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452598skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100636272259skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100636272258skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452597skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452596skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452595skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100636272257skus not exists
+2015/04/21 10:35:25 [error] [system.fail] Caught exception: num_iid:2100635452594skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100635452593skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100635835468skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100636262091skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100636254940skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100635835467skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100636254939skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100635835465skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100636254938skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100636254937skus not exists
+2015/04/21 10:35:26 [error] [system.fail] Caught exception: num_iid:2100636254936skus not exists
+2015/04/21 10:35:47 [error] [system.fail] Caught exception: num_iid:2100635432240skus not exists
+2015/04/21 10:35:47 [error] [system.fail] Caught exception: num_iid:2100636254931skus not exists
+2015/04/21 10:35:47 [error] [system.fail] Caught exception: num_iid:2100636251019skus not exists
+2015/04/21 10:35:47 [error] [system.fail] Caught exception: num_iid:2100636251018skus not exists
+2015/04/21 10:35:47 [error] [system.fail] Caught exception: num_iid:2100635432239skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100635432238skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100635432237skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100635432236skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100635432235skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100636583925skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100638678481skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637838783skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637838782skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637838781skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637824230skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637822229skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637824229skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637824228skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637822230skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637824226skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637822226skus not exists
+2015/04/21 10:35:48 [error] [system.fail] Caught exception: num_iid:2100637822225skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637822224skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637824225skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637824224skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637824223skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100636583843skus not exists
+2015/04/21 10:35:49 [error] [system.fail] Caught exception: num_iid:2100636156697skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100635731347skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627608444skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627608443skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236538skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236537skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236536skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236535skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236534skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236533skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100627236532skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100638192166skus not exists
+2015/04/21 10:35:50 [error] [system.fail] Caught exception: num_iid:2100637320469skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305520skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305519skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305518skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305517skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305516skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305515skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625678704skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100625305514skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100636157011skus not exists
+2015/04/21 10:35:51 [error] [system.fail] Caught exception: num_iid:2100642614385skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614345skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614384skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614383skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614382skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614381skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614344skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614343skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614342skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100642614341skus not exists
+2015/04/21 10:35:52 [error] [system.fail] Caught exception: num_iid:2100636257999skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100637084817skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100636257838skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100637084816skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100636257836skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100636257835skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100637084815skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100636257834skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100636257833skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100643165728skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100641877916skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100641877915skus not exists
+2015/04/21 10:35:53 [error] [system.fail] Caught exception: num_iid:2100641877914skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100641877913skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100641877912skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100643165727skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100643165726skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100642718220skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100641877911skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100635450500skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100635450499skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100635450498skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100635466373skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100635466372skus not exists
+2015/04/21 10:35:54 [error] [system.fail] Caught exception: num_iid:2100635466371skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100635450497skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100635450496skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100635450495skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100648074333skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100648074332skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100647646942skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100647646941skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100648074331skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100648074300skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100647200920skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100647200919skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100647200918skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100647200917skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100636165982skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100636165981skus not exists
+2015/04/21 10:35:55 [error] [system.fail] Caught exception: num_iid:2100637024524skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100637024523skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100637020770skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100637020769skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100637024522skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100637024521skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100637020768skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100635764960skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620107981skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620102588skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620102587skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620102585skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620840170skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620840169skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620102584skus not exists
+2015/04/21 10:35:56 [error] [system.fail] Caught exception: num_iid:2100620102583skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854581skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454791skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454480skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854350skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454479skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454478skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454477skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454476skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854349skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854348skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854345skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454474skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854344skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635854343skus not exists
+2015/04/21 10:35:57 [error] [system.fail] Caught exception: num_iid:2100635454473skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635854342skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635454472skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635454471skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635854341skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452600skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452599skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452598skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100636272259skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100636272258skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452597skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452596skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452595skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100636272257skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452594skus not exists
+2015/04/21 10:35:58 [error] [system.fail] Caught exception: num_iid:2100635452593skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100635835468skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100636262091skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100636254940skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100635835467skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100636254939skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100635835465skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100636254938skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100636254937skus not exists
+2015/04/21 10:35:59 [error] [system.fail] Caught exception: num_iid:2100636254936skus not exists
+2015/04/21 10:36:00 [error] [php] Undefined offset: 2 (C:\wamp\www\yii1\Tmall2\protected\commands\CategoryProductCommand.php:64)
+Stack trace:
+#0 C:\wamp\www\yii1\framework\base\CApplication.php(184): CConsoleApplication->processRequest()
+#1 C:\wamp\www\yii1\Tmall2\crons.php(15): CConsoleApplication->run()
+
+2015/04/21 10:36:11 [error] [system.fail] Caught exception: num_iid:2100635432240skus not exists
+2015/04/21 10:36:11 [error] [system.fail] Caught exception: num_iid:2100636254931skus not exists
+2015/04/21 10:36:11 [error] [system.fail] Caught exception: num_iid:2100636251019skus not exists
+2015/04/21 10:36:11 [error] [system.fail] Caught exception: num_iid:2100636251018skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100635432239skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100635432238skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100635432237skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100635432236skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100635432235skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100636583925skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100638678481skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637838783skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637838782skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637838781skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637824230skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637822229skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637824229skus not exists
+2015/04/21 10:36:12 [error] [system.fail] Caught exception: num_iid:2100637824228skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637822230skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637824226skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637822226skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637822225skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637822224skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637824225skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637824224skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637824223skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100636583843skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100636156697skus not exists
+2015/04/21 10:36:13 [error] [system.fail] Caught exception: num_iid:2100635731347skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627608444skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627608443skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236538skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236537skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236536skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236535skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236534skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236533skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100627236532skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100638192166skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100637320469skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100625305520skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100625305519skus not exists
+2015/04/21 10:36:14 [error] [system.fail] Caught exception: num_iid:2100625305518skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100625305517skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100625305516skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100625305515skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100625678704skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100625305514skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100636157011skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614385skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614345skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614384skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614383skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614382skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614381skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614344skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614343skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614342skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100642614341skus not exists
+2015/04/21 10:36:15 [error] [system.fail] Caught exception: num_iid:2100636257999skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100637084817skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100636257838skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100637084816skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100636257836skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100636257835skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100637084815skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100636257834skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100636257833skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100643165728skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100641877916skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100641877915skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100641877914skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100641877913skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100641877912skus not exists
+2015/04/21 10:36:16 [error] [system.fail] Caught exception: num_iid:2100643165727skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100643165726skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100642718220skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100641877911skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635450500skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635450499skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635450498skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635466373skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635466372skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635466371skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635450497skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635450496skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100635450495skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100648074333skus not exists
+2015/04/21 10:36:17 [error] [system.fail] Caught exception: num_iid:2100648074332skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100647646942skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100647646941skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100648074331skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100648074300skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100647200920skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100647200919skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100647200918skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100647200917skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100636165982skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100636165981skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100637024524skus not exists
+2015/04/21 10:36:18 [error] [system.fail] Caught exception: num_iid:2100637024523skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100637020770skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100637020769skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100637024522skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100637024521skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100637020768skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100635764960skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620107981skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620102588skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620102587skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620102585skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620840170skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620840169skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620102584skus not exists
+2015/04/21 10:36:19 [error] [system.fail] Caught exception: num_iid:2100620102583skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635854581skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635454791skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635454480skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635854350skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635454479skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635454478skus not exists
+2015/04/21 10:36:20 [error] [system.fail] Caught exception: num_iid:2100635454477skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635454476skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854349skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854348skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854345skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635454474skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854344skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854343skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635454473skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854342skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635454472skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635454471skus not exists
+2015/04/21 10:36:21 [error] [system.fail] Caught exception: num_iid:2100635854341skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452600skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452599skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452598skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100636272259skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100636272258skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452597skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452596skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452595skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100636272257skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452594skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635452593skus not exists
+2015/04/21 10:36:22 [error] [system.fail] Caught exception: num_iid:2100635835468skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100636262091skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100636254940skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100635835467skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100636254939skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100635835465skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100636254938skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100636254937skus not exists
+2015/04/21 10:36:23 [error] [system.fail] Caught exception: num_iid:2100636254936skus not exists
+2015/04/21 10:37:36 [error] [system.fail] Caught exception: num_iid:2100635432240skus not exists
+2015/04/21 10:37:36 [error] [system.fail] Caught exception: num_iid:2100636254931skus not exists
+2015/04/21 10:37:36 [error] [system.fail] Caught exception: num_iid:2100636251019skus not exists
+2015/04/21 10:37:36 [error] [system.fail] Caught exception: num_iid:2100636251018skus not exists
+2015/04/21 10:37:36 [error] [system.fail] Caught exception: num_iid:2100635432239skus not exists
+2015/04/21 10:37:36 [error] [system.fail] Caught exception: num_iid:2100635432238skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100635432237skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100635432236skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100635432235skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100636583925skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100638678481skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637838783skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637838782skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637838781skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637824230skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637822229skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637824229skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637824228skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637822230skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637824226skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637822226skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637822225skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637822224skus not exists
+2015/04/21 10:37:37 [error] [system.fail] Caught exception: num_iid:2100637824225skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100637824224skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100637824223skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100637824222skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100637822223skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100637824221skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100636583843skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100636156697skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100635731347skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627608444skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627608443skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236538skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236537skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236536skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236535skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236534skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236533skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100627236532skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100638192166skus not exists
+2015/04/21 10:37:38 [error] [system.fail] Caught exception: num_iid:2100637320469skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305520skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305519skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305518skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305517skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305516skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305515skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625678704skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100625305514skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100636157011skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614385skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614345skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614384skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614383skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614382skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614381skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614344skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614343skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614342skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100642614341skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100636257999skus not exists
+2015/04/21 10:37:39 [error] [system.fail] Caught exception: num_iid:2100637084817skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100636257838skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100637084816skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100636257836skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100636257835skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100637084815skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100636257834skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100636257833skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100643165728skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100641877916skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100641877915skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100641877914skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100641877913skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100641877912skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100643165727skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100643165726skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100642718220skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100641877911skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100635450500skus not exists
+2015/04/21 10:37:40 [error] [system.fail] Caught exception: num_iid:2100635450499skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635450498skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635466373skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635466372skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635466371skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635450497skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635450496skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100635450495skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100648074333skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100648074332skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100647646942skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100647646941skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100648074331skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100648074300skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100647200920skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100647200919skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100647200918skus not exists
+2015/04/21 10:37:41 [error] [system.fail] Caught exception: num_iid:2100647200917skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100636165982skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100636165981skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637024524skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637024523skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637020770skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637020769skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637024522skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637024521skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100637020768skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100635764960skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620107981skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620102588skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620102587skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620102585skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620840170skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620840169skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620102584skus not exists
+2015/04/21 10:37:42 [error] [system.fail] Caught exception: num_iid:2100620102583skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635854581skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454791skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454480skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635854350skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454479skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454478skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454477skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454476skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635854349skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635854348skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635854345skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635454474skus not exists
+2015/04/21 10:37:43 [error] [system.fail] Caught exception: num_iid:2100635854344skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635854343skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635454473skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635854342skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635454472skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635454471skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635854341skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635452600skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635452599skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635452598skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100636272259skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100636272258skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635452597skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635452596skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100635452595skus not exists
+2015/04/21 10:37:44 [error] [system.fail] Caught exception: num_iid:2100636272257skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100635452594skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100635452593skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100635835468skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100636262091skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100636254940skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100635835467skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100636254939skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100635835465skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100636254938skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100636254937skus not exists
+2015/04/21 10:37:45 [error] [system.fail] Caught exception: num_iid:2100636254936skus not exists

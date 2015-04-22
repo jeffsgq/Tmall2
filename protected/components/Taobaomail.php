@@ -4,7 +4,7 @@ include_once (dirname(__FILE__).'/../extensions/PHPMailer/class.phpmailer.php');
 include_once (dirname(__FILE__).'/../extensions/PHPMailer/class.smtp.php');
 include_once (dirname(__FILE__).'/../extensions/PHPMailer/class.pop3.php');
 class Taobaomail {
-    public function sendTaobaoMai($fileName,$to){
+    public function sendTaobaoMai($fileName){
             $mail  = new PHPMailer(); 
             $mail->CharSet ="UTF-8";
             //设置stmp参数
@@ -15,31 +15,37 @@ class Taobaomail {
             $mail->Host = "smtp.gmail.com";
             $mail->Port = 465;
             //gmail的帐号和密码
-            $mail->Username   = "zhiqiang.gesz@gmail.com";
-            $mail->Password   = "zhiqiang1002";
+            $mail->Username = Yii::app()->params['addresser']['Username'];
+            $mail->Password = Yii::app()->params['addresser']['Password'];
             //设置发送方
-            $mail->From = "zhiqiang.gesz@gmail.com";
-            $mail->FromName = "Zhiqiang Ge";
-            $mail->Subject = "Tmall API Results";
-            $mail->Body = 'The tmall api results, please check the attachment in the email.'; 
+            $mail->From = Yii::app()->params['addresser']['Username'];
+            $mail->FromName = Yii::app()->params['addresser']['FromName'];
+            //邮件信息
+            $mail->Subject = Yii::app()->params['mallmessage']['Subject'];
+            $mail->Body = Yii::app()->params['mallmessage']['Body'];
             $mail->WordWrap = 50;
             $mail->MsgHTML($mail->Body); 
             //设置回复地址
-            $mail->AddReplyTo("zhiqiang.gesz@gmail.com","Zhiqiang Ge");
-            //添加附件
-//            $fileName="trades.xls";
+            $mail->AddReplyTo(Yii::app()->params['addresser']['Username'],Yii::app()->params['addresser']['FromName']);
+            //附件
             $path=dirname(__FILE__).'/../../Excel/'.$fileName;
             $name=$fileName;
             $mail->AddAttachment($path,$name,$encoding='base64',$type='application/octet-stream');
             //接收方的邮箱和姓名
-//            $to="zhiqiang.ge@decathlon.com";
-            $mail->AddAddress($to,"");
+            $this->sendMulti($mail);
             //使用HTML格式发送邮件
             $mail->IsHTML(true);
             if(!$mail->Send()) {
-                echo "\nMailer Error: " . $mail->ErrorInfo;
+                echo "\nSend mail failed: " . $mail->ErrorInfo;
             } else {
-                echo "\nMessage has been sent to:".$to;
+                echo "\n\tMail success";
             }
+    }
+    //发送多人
+    public function sendMulti($mail){
+        $recipients = Yii::app()->params['recipients'];
+        foreach ($recipients as $recipientkey => $recipientvalue) {
+            $mail->AddAddress($recipientvalue,NULL);
+        }
     }
 }

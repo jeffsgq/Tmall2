@@ -35,33 +35,29 @@ class CommentSQLCommand extends ConsoleCommand {
     public function run($args){
         ob_start();
         $start = date('Y-m-d H:i:s');
-       if(count($args)==2){
-            $this->_getTraderatesAPIValue($args[0], $args[1]);
-        }else if(count($args)==3){
+        if(count($args)==2){
             $this->_getTraderatesAPIValue($args[0], $args[1]);
         }else if(count($args)==0){
-            $date=date('Y-m-d');  //当前日期
-            $first=1; //$first =1 表示每周星期一为开始日期 0表示每周日为开始日期
-            $w=date('w',strtotime($date));  //获取当前周的第几天 周日是 0 周一到周六是 1 - 6
-            $now_start=date('Y-m-d',strtotime("$date -".($w ? $w - $first : 6).' days')); //获取本周开始日期，如果$w是0，则表示周日，减去 6 天
-            $last_start=date('Y-m-d',strtotime("$now_start - 7 days"));  //上周开始日期
-            $last_end=date('Y-m-d',strtotime("$now_start - 1 days"));  //上周结束日期
+            $date=date('Y-m-d'); 
+            $first=1; 
+            $w=date('w',strtotime($date)); 
+            $now_start=date('Y-m-d',strtotime("$date -".($w ? $w - $first : 6).' days')); 
+            $last_start=date('Y-m-d',strtotime("$now_start - 7 days")); 
+            $last_end=date('Y-m-d',strtotime("$now_start - 1 days")); 
             $this->_getTraderatesAPIValue($last_start, $last_end);
         }else{
             echo "Please input start date and end date!";
             exit();
         }
+        //运行时间
         $insertSQL = date('Y-m-d H:i:s');
         $this->_transcation();
         $updateSQL = date('Y-m-d H:i:s');
         $this->_generateExcel();
         $generateExcel = date('Y-m-d H:i:s');
-        echo "\nstart time:\t$start\ninsert database:$insertSQL\nupdate database:$updateSQL\ngenerate excel: $generateExcel\n\ttrades.xls\n--------END--------";
-        if(!empty($args[2])){
-            $this->taobaomail->sendTaobaoMai($this->fileName, $args[2]);
-        }else{
-            echo "\n**************No email**************";
-        }
+        echo "\nstart time:\t$start\ninsert database:$insertSQL\nupdate database:$updateSQL\ngenerate excel: $generateExcel\n\t".$this->fileName;
+        //发送邮件
+        $this->taobaomail->sendTaobaoMai($this->fileName);
     }
     public function _generateExcel(){
         $this->_startSaveExcel();

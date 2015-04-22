@@ -20,7 +20,7 @@ class CategoryProductCommand extends ConsoleCommand {
     protected $titleArray = null;
     protected $_parentFields= array();
     protected $_skuFields= array();
-    protected $_fileName = null;
+    protected $fileName = null;
     protected $taobaomail = null;
     public function init(){
         ini_set('memory_limit', '800M');
@@ -37,43 +37,36 @@ class CategoryProductCommand extends ConsoleCommand {
     }
     public function run($choic){
         ob_start();
-//         $this->_connectTmall(Yii::app()->params['taobao_api']['accessToken'],'2100636162534');
-//         exit();
         $this->_prompt($choic);
         switch ($choic[0]) {
             case 'inventory':
-                $this->_fileName = "Inventory_sku.xls";
+                $this->fileName = "Inventory_sku.xls";
                 $this->readFileName = dirname(__FILE__).'/../../Excel/Inventory_num_iid.xls';
-                $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->_fileName;
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->fileName;
                 break;
             case 'onsale':
-                $this->_fileName = "Onsale_sku.xls";
+                $this->fileName = "Onsale_sku.xls";
                 $this->readFileName = dirname(__FILE__).'/../../Excel/Onsale_num_iid.xls';
-                $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->_fileName;
+                $this->saveFileName = dirname(__FILE__).'/../../Excel/'.$this->fileName;
                 break;
             default:
                 echo "**************************************************\n"
-                    . "Please input parameter : onsale or inventory\nIf you want to send email, The parameter : onsale abc@decathlon.com or inventory abc@decathlon.com"
+                    . "Please input parameter : onsale or inventory\n"
                     . "**************************************************";
                 exit();
         }
         $this->PHPReader = $this->PHPExcel->load($this->readFileName);
         fopen($this->saveFileName, "w+");
         $this->_generateExcel();
-        if(!empty($choic[1])){
-            $this->taobaomail->sendTaobaoMai($this->_fileName, $choic[1]);
-        }else{
-            echo "\n**************No email**************";
-        }
+        //发送邮件
+        $this->taobaomail->sendTaobaoMai($this->fileName);
     }
     //parameter prompt
     public function _prompt($args){
         if(empty($args)){
             echo "**************************************************\n"
             . "Please input parement : onsale or inventory\n"
-            . "Like that:categoryproduct onsale\n"
-            . "If you want to send email\nThe parameter : onsale abc@decathlon.com OR inventory abc@decathlon.com\n"
-            . "Like that:categoryproduct onsale abc@decathlon.com\n"        
+            . "Like that:categoryproduct onsale\n"      
             . "**************************************************";
             exit();
         }
@@ -96,12 +89,10 @@ class CategoryProductCommand extends ConsoleCommand {
     public function _filterApiParentValue($num_iid,$banner){
         $_filterResult= array();
         $_itemsTmallAll = $this->_getAPIValue($num_iid);
-//        print_r($_itemsTmallAll);
         if(!empty($_itemsTmallAll)){
             foreach ($this->_parentFields as $field){
                 $_filterResult['banner']= $banner;
                 if(array_key_exists($field,$_itemsTmallAll)){
-//                    array_push($_filterResult,$_itemsTmallAll[$fields]);
                     $_filterResult[$field]= $_itemsTmallAll[$field];
                 }else{
                     $_filterResult[$field]= "";
@@ -139,7 +130,6 @@ class CategoryProductCommand extends ConsoleCommand {
         $currentSheet = $this->PHPWrite->setActiveSheetIndex(0);
         $_filterParentResult= $this->_filterApiParentValue($_numID,$banner);
         $_filterResult = $this->_filterApiSkuValue($_filterParentResult, $_numID);
-//        print_r($_filterResult);exit();
         unset($_filterParentResult);
         if(count($_filterResult['skus']['sku'])==0){
             $_skuQty=1;
@@ -181,10 +171,9 @@ class CategoryProductCommand extends ConsoleCommand {
             if(!empty($num_iid)){
                $rowIndex = $this->_insertExc($num_iid,$banner,$rowIndex); 
             }
-//            echo $rowIndex;
         }
         $this->_endSaveExcel();//Excel的尾部
-        echo "\t-sku.xls\n-------------END-------------";
+        echo "\t$this->fileName\n-------------END-------------";
     }
     
    
